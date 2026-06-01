@@ -125,7 +125,7 @@ La Curva S representa la evolución estimada del proyecto a lo largo del tiempo.
 
 Representación aproximada:
 
-100% |                              ●
+100%|                              ●
 90% |                         ●
 80% |
 75% |                    ●
@@ -135,8 +135,8 @@ Representación aproximada:
 35% |          ●
 20% |      ●
 10% |   ●
-0%|________________________________
-May Jun Jul Ago Sep Oct Nov
+0%  |________________________________
+        May Jun Jul Ago Sep Oct Nov
 
 
 ## Estado actual
