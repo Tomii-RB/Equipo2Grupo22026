@@ -108,6 +108,37 @@ La siguiente planificación representa las etapas previstas para el desarrollo d
 | Preparación de la presentación | | | | | | | X |
 | Entrega final | | | | | | | X |
 
+
+## Curva S Proyectada
+
+La Curva S representa la evolución estimada del proyecto a lo largo del tiempo. Durante las primeras etapas el avance es más lento debido a las tareas de investigación, análisis y planificación. Posteriormente el porcentaje de avance aumenta durante la fase de desarrollo y finalmente vuelve a estabilizarse en las etapas de pruebas, documentación y entrega.
+
+| Mes        | Avance acumulado |
+| ---------- | ---------------- |
+| Mayo       | 10%              |
+| Junio      | 20%              |
+| Julio      | 35%              |
+| Agosto     | 55%              |
+| Septiembre | 75%              |
+| Octubre    | 90%              |
+| Noviembre  | 100%             |
+
+Representación aproximada:
+
+100% |                              ●
+90% |                         ●
+80% |
+75% |                    ●
+60% |
+55% |               ●
+40% |
+35% |          ●
+20% |      ●
+10% |   ●
+0%|________________________________
+May Jun Jul Ago Sep Oct Nov
+
+
 ## Estado actual
 
 Actualmente se encuentra finalizada la etapa inicial de investigación y definición del proyecto.
