@@ -1,0 +1,681 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="es"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Mundo F1 - Engineering Excellence</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Chivo:wght@400;700;800;900&amp;family=Hanken+Grotesk:wght@400;500;600&amp;family=JetBrains+Mono:wght@500;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+          darkMode: "class",
+          theme: {
+            extend: {
+              "colors": {
+                      "outline-variant": "#5e3f3a",
+                      "outline": "#af8781",
+                      "on-primary-fixed": "#410100",
+                      "surface-container-lowest": "#0d0d16",
+                      "on-secondary-container": "#b9b7c1",
+                      "tertiary-fixed-dim": "#c6c6c7",
+                      "on-error-container": "#ffdad6",
+                      "surface-container-high": "#292933",
+                      "tertiary-container": "#6f7070",
+                      "error-container": "#93000a",
+                      "on-secondary-fixed-variant": "#46464e",
+                      "secondary-container": "#494851",
+                      "inverse-primary": "#c00500",
+                      "surface-dim": "#13131b",
+                      "surface-container-highest": "#34343e",
+                      "on-background": "#e4e1ee",
+                      "secondary-fixed": "#e4e1ec",
+                      "on-tertiary-container": "#f5f5f5",
+                      "on-secondary": "#303038",
+                      "on-secondary-fixed": "#1b1b22",
+                      "on-tertiary-fixed-variant": "#454747",
+                      "on-primary-fixed-variant": "#930300",
+                      "secondary-fixed-dim": "#c7c5d0",
+                      "on-surface": "#e4e1ee",
+                      "inverse-on-surface": "#302f39",
+                      "on-error": "#690005",
+                      "inverse-surface": "#e4e1ee",
+                      "primary-fixed": "#ffdad4",
+                      "surface-bright": "#393842",
+                      "error": "#ffb4ab",
+                      "on-primary": "#680200",
+                      "surface-tint": "#ffb4a8",
+                      "on-tertiary": "#2f3131",
+                      "primary-container": "#e10600",
+                      "secondary": "#c7c5d0",
+                      "surface-container-low": "#1b1b24",
+                      "tertiary": "#c6c6c7",
+                      "on-tertiary-fixed": "#1a1c1c",
+                      "surface-container": "#1f1f28",
+                      "background": "#13131b",
+                      "surface-variant": "#34343e",
+                      "on-surface-variant": "#e9bcb5",
+                      "tertiary-fixed": "#e2e2e2",
+                      "primary": "#ffb4a8",
+                      "surface": "#13131b",
+                      "on-primary-container": "#fff2f0",
+                      "primary-fixed-dim": "#ffb4a8"
+              },
+              "borderRadius": {
+                      "DEFAULT": "0.25rem",
+                      "lg": "0.5rem",
+                      "xl": "0.75rem",
+                      "full": "9999px"
+              },
+              "spacing": {
+                      "margin-desktop": "48px",
+                      "max-width": "1440px",
+                      "gutter": "24px",
+                      "margin-mobile": "16px",
+                      "unit": "4px"
+              },
+              "fontFamily": {
+                      "body-lg": ["Hanken Grotesk"],
+                      "stat-value": ["Chivo"],
+                      "headline-xl": ["Chivo"],
+                      "headline-md": ["Chivo"],
+                      "label-mono": ["JetBrains Mono"],
+                      "headline-lg-mobile": ["Chivo"],
+                      "headline-lg": ["Chivo"],
+                      "body-md": ["Hanken Grotesk"]
+              },
+              "fontSize": {
+                      "body-lg": ["18px", {"lineHeight": "1.6", "fontWeight": "400"}],
+                      "stat-value": ["20px", {"lineHeight": "1.0", "fontWeight": "900"}],
+                      "headline-xl": ["48px", {"lineHeight": "1.1", "letterSpacing": "-0.02em", "fontWeight": "900"}],
+                      "headline-md": ["24px", {"lineHeight": "1.3", "fontWeight": "700"}],
+                      "label-mono": ["14px", {"lineHeight": "1.0", "letterSpacing": "0.05em", "fontWeight": "500"}],
+                      "headline-lg-mobile": ["28px", {"lineHeight": "1.2", "fontWeight": "800"}],
+                      "headline-lg": ["32px", {"lineHeight": "1.2", "letterSpacing": "-0.01em", "fontWeight": "800"}],
+                      "body-md": ["16px", {"lineHeight": "1.5", "fontWeight": "400"}]
+              }
+            },
+          },
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .speed-line {
+            background: linear-gradient(90deg, transparent 0%, rgba(225, 6, 0, 0.5) 50%, transparent 100%);
+            height: 1px;
+            width: 100%;
+        }
+        .glass-panel {
+            background: rgba(44, 44, 52, 0.6);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(62, 62, 71, 0.5);
+        }
+        .pit-lane-dark {
+            background-color: #15151E;
+        }
+        .red-accent-card {
+            border-left: 4px solid #E10600;
+        }
+        ::-webkit-scrollbar { width: 6px; }
+        ::-webkit-scrollbar-track { background: #13131b; }
+        ::-webkit-scrollbar-thumb { background: #e10600; }
+    </style>
+</head>
+<body class="bg-background text-on-surface font-body-md overflow-x-hidden">
+<!-- TopNavBar -->
+<nav class="fixed top-0 w-full z-50 bg-surface/60 backdrop-blur-md border-b border-outline-variant/50">
+<div class="flex justify-between items-center px-margin-mobile md:px-margin-desktop max-w-max-width mx-auto h-20">
+<div class="flex items-center gap-4">
+<img alt="Mundo F1" class="h-8 md:h-10" src="data:image/png;base64,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"/>
+</div>
+<div class="hidden md:flex gap-8 items-center">
+<a class="text-primary font-bold border-b-2 border-primary pb-1 font-headline-md text-headline-md" href="#">Home</a>
+<a class="text-on-surface-variant font-body-md text-body-md hover:text-on-surface transition-colors" href="#">Drivers</a>
+<a class="text-on-surface-variant font-body-md text-body-md hover:text-on-surface transition-colors" href="#">Teams</a>
+<a class="text-on-surface-variant font-body-md text-body-md hover:text-on-surface transition-colors" href="#">Circuits</a>
+<a class="text-on-surface-variant font-body-md text-body-md hover:text-on-surface transition-colors" href="#">Calendar</a>
+<a class="text-on-surface-variant font-body-md text-body-md hover:text-on-surface transition-colors" href="#">Standings</a>
+</div>
+<div class="flex items-center gap-4">
+<button class="p-2 hover:bg-primary/10 transition-all duration-200 active:scale-95">
+<span class="material-symbols-outlined text-primary">search</span>
+</button>
+<button class="md:hidden p-2">
+<span class="material-symbols-outlined">menu</span>
+</button>
+</div>
+</div>
+</nav>
+<!-- Hero Section -->
+<header class="relative min-h-screen flex items-center pt-20 overflow-hidden">
+<div class="absolute inset-0 z-0">
+<div class="absolute inset-0 bg-gradient-to-r from-background via-background/80 to-transparent z-10"></div>
+<img class="w-full h-full object-cover" data-alt="A high-performance Formula 1 car captured in a dynamic low-angle shot on a rain-slicked night circuit. The scene is illuminated by dramatic track lighting reflecting off the carbon fiber body, with glowing red brake discs and streaks of light. The overall mood is high-octane and technical, utilizing a deep dark-mode palette with vibrant red accents against the asphalt." src="6b654880-f78b-11f0-901d-31b29a84f7aa.webp"/>
+</div>
+<div class="relative z-20 px-margin-mobile md:px-margin-desktop max-w-max-width mx-auto w-full">
+<div class="max-w-2xl">
+<div class="inline-flex items-center gap-2 mb-6 bg-primary/10 px-4 py-1 border border-primary/20">
+<span class="w-2 h-2 rounded-full bg-primary animate-pulse"></span>
+<span class="font-label-mono text-label-mono text-primary uppercase">Live Telemetry Active</span>
+</div>
+<h1 class="font-headline-xl text-headline-xl uppercase mb-6 leading-none">
+                    Toda la información de la <span class="text-primary-container">Fórmula 1</span> en un solo lugar
+                </h1>
+<p class="font-body-lg text-body-lg text-on-surface-variant mb-10 max-w-lg">
+                    Sigue cada carrera, piloto y equipo de la temporada actual con precisión técnica. Ingeniería de datos al servicio del fanático.
+                </p>
+<div class="flex flex-col sm:flex-row gap-4">
+<button class="bg-primary-container text-on-primary-container px-8 py-4 font-headline-md text-headline-md uppercase font-bold hover:brightness-110 transition-all active:scale-95 flex items-center justify-center gap-2">
+                        Ver Calendario
+                        <span class="material-symbols-outlined">event_note</span>
+</button>
+<button class="border border-on-surface px-8 py-4 font-headline-md text-headline-md uppercase font-bold hover:bg-white/5 transition-all active:scale-95">
+                        Standings
+                    </button>
+</div>
+</div>
+</div>
+<div class="absolute bottom-10 left-0 right-0 z-20 flex justify-center animate-bounce">
+<span class="material-symbols-outlined text-on-surface-variant">expand_more</span>
+</div>
+</header>
+<main class="py-12 space-y-24">
+<!-- Next Grand Prix Card -->
+<section class="px-margin-mobile md:px-margin-desktop max-w-max-width mx-auto">
+<div class="glass-panel p-8 md:p-12 red-accent-card flex flex-col lg:flex-row justify-between items-center gap-12 overflow-hidden relative">
+<div class="absolute top-0 right-0 p-4 opacity-5">
+<span class="material-symbols-outlined !text-[120px]">timer</span>
+</div>
+<div class="relative z-10 w-full lg:w-1/2">
+<div class="flex items-center gap-4 mb-4">
+<span class="font-label-mono text-label-mono text-primary uppercase tracking-widest">Next Event</span>
+<div class="h-px flex-1 bg-outline-variant/30"></div>
+</div>
+<h2 class="font-headline-xl text-headline-xl mb-2">GP de Mónaco</h2>
+<p class="font-headline-md text-headline-md text-on-surface-variant mb-6">Circuit de Monaco • Monte Carlo</p>
+<div class="flex items-center gap-6">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-primary">calendar_today</span>
+<span class="font-body-lg text-body-lg">June 7 2026</span>
+</div>
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-primary">public</span>
+<span class="font-body-lg text-body-lg">Monaco</span>
+</div>
+</div>
+</div>
+<div class="relative z-10 grid grid-cols-4 gap-4 w-full lg:w-1/2 text-center">
+<div class="bg-surface-container p-4">
+<div class="font-headline-lg text-headline-lg text-primary font-black" id="days">06</div>
+<div class="font-label-mono text-label-mono uppercase text-on-surface-variant">Days</div>
+</div>
+<div class="bg-surface-container p-4">
+<div class="font-headline-lg text-headline-lg text-primary font-black" id="hours">12</div>
+<div class="font-label-mono text-label-mono uppercase text-on-surface-variant">Hours</div>
+</div>
+<div class="bg-surface-container p-4">
+<div class="font-headline-lg text-headline-lg text-primary font-black" id="mins">45</div>
+<div class="font-label-mono text-label-mono uppercase text-on-surface-variant">Min</div>
+</div>
+<div class="bg-surface-container p-4">
+<div class="font-headline-lg text-headline-lg text-primary font-black" id="secs">09</div>
+<div class="font-label-mono text-label-mono uppercase text-on-surface-variant">Seg</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Standings Section -->
+<section class="px-margin-mobile md:px-margin-desktop max-w-max-width mx-auto grid md:grid-cols-2 gap-gutter">
+<!-- Driver Standings -->
+<div class="space-y-6">
+<div class="flex justify-between items-end border-b border-outline-variant/30 pb-4">
+<h3 class="font-headline-lg text-headline-lg uppercase italic">Drivers</h3>
+<a class="text-primary font-label-mono text-label-mono uppercase hover:underline" href="#">Full Standing</a>
+</div>
+<div class="bg-surface-container overflow-hidden">
+<table class="w-full text-left border-collapse">
+<thead>
+<tr class="bg-surface-container-high text-on-surface-variant uppercase font-label-mono text-xs">
+<th class="p-4">Pos</th>
+<th class="p-4">Driver</th>
+<th class="p-4">Points</th>
+</tr>
+</thead>
+<tbody class="font-label-mono">
+<tr class="border-b border-outline-variant/10 hover:bg-surface-variant transition-colors group">
+<td class="p-4 font-black text-primary">1</td>
+<td class="p-4 flex items-center gap-3">
+<div class="w-1 h-8 bg-primary"></div>
+<span class="font-bold">Kimi ANTONELLI</span>
+</td>
+<td class="p-4 text-right font-black">131</td>
+</tr>
+<tr class="bg-surface-container-low border-b border-outline-variant/10 hover:bg-surface-variant transition-colors">
+<td class="p-4 font-black">2</td>
+<td class="p-4 flex items-center gap-3">
+<div class="w-1 h-8 bg-primary"></div>
+<span>George RUSSEL</span>
+</td>
+<td class="p-4 text-right">81</td>
+</tr>
+<tr class="border-b border-outline-variant/10 hover:bg-surface-variant transition-colors">
+<td class="p-4 font-black">3</td>
+<td class="p-4 flex items-center gap-3">
+<div class="w-1 h-8 bg-red-600"></div>
+<span>Charles LECLERC</span>
+</td>
+<td class="p-4 text-right">75</td>
+</tr>
+<tr class="bg-surface-container-low border-b border-outline-variant/10 hover:bg-surface-variant transition-colors">
+<td class="p-4 font-black">4</td>
+<td class="p-4 flex items-center gap-3">
+<div class="w-1 h-8 bg-red-600"></div>
+<span>Lewis HAMILTON</span>
+</td>
+<td class="p-4 text-right">72</td>
+</tr>
+<tr class="border-b border-outline-variant/10 hover:bg-surface-variant transition-colors">
+<td class="p-4 font-black">5</td>
+<td class="p-4 flex items-center gap-3">
+<div class="w-1 h-8 bg-orange-500"></div>
+<span>Lando NORRIS</span>
+</td>
+<td class="p-4 text-right">58</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<!-- Constructor Standings -->
+<div class="space-y-6">
+<div class="flex justify-between items-end border-b border-outline-variant/30 pb-4">
+<h3 class="font-headline-lg text-headline-lg uppercase italic">Constructors</h3>
+<a class="text-primary font-label-mono text-label-mono uppercase hover:underline" href="#">Full Standing</a>
+</div>
+<div class="bg-surface-container overflow-hidden">
+<table class="w-full text-left border-collapse">
+<thead>
+<tr class="bg-surface-container-high text-on-surface-variant uppercase font-label-mono text-xs">
+<th class="p-4">Pos</th>
+<th class="p-4">Team</th>
+<th class="p-4">Points</th>
+</tr>
+</thead>
+<tbody class="font-label-mono">
+<tr class="border-b border-outline-variant/10 hover:bg-surface-variant transition-colors">
+<td class="p-4 font-black text-primary">1</td>
+<td class="p-4">Mercedes</td>
+<td class="p-4 text-right font-black">219</td>
+</tr>
+<tr class="bg-surface-container-low border-b border-outline-variant/10 hover:bg-surface-variant transition-colors">
+<td class="p-4 font-black">2</td>
+<td class="p-4">Ferrari</td>
+<td class="p-4 text-right">147</td>
+</tr>
+<tr class="border-b border-outline-variant/10 hover:bg-surface-variant transition-colors">
+<td class="p-4 font-black">3</td>
+<td class="p-4">McLaren</td>
+<td class="p-4 text-right">106</td>
+</tr>
+<tr class="bg-surface-container-low border-b border-outline-variant/10 hover:bg-surface-variant transition-colors">
+<td class="p-4 font-black">4</td>
+<td class="p-4">Red Bull Racing</td>
+<td class="p-4 text-right">57</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</section>
+<!-- Featured Drivers -->
+<section class="px-margin-mobile md:px-margin-desktop max-w-max-width mx-auto">
+<h2 class="font-headline-lg text-headline-lg uppercase mb-8 flex items-center gap-4">
+<span class="material-symbols-outlined text-primary">sports_score</span>
+                Featured Drivers
+            </h2>
+<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+<!-- Driver Card -->
+<div class="bg-surface-container group overflow-hidden border border-outline-variant/20 hover:border-primary/50 transition-all">
+<div class="h-64 overflow-hidden relative">
+<!-- <img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" data-alt="A cinematic portrait of F1 driver Max Verstappen wearing his technical race suit and helmet nearby. The lighting is moody and high-contrast, with sharp rim lighting against a dark garage background. The color palette emphasizes corporate dark grays and vibrant red accents, reflecting the engineering precision of the sport." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCcJ01j71sHfFgv7Vg3HZEfPsWN89jtWGnfM0LoyLKkGp5XZFWDaMl_TSdTxHkzoj1I4JoMUKxhZY1BQ99zp8Mp41knjl_lOJzjlZcPJ5t6O07Tb__vkOisnHkJviO2h7BSH2oMFPICvt3QVR-qJket3nFUsUwjkrWKf6SCWeQkt1snoYJzIIC9o9VQii-2MV231Y9_l5Ml5eWD6-APoXxJCXwZRATJlYwMqls4WuDGyg_ImD924QKi4umQnevanQ5q6F2fSU49UgsH"/> -->
+<div class="absolute top-4 right-4 bg-primary text-on-primary font-black px-3 py-1 font-stat-value">12</div>
+</div>
+<div class="p-6 red-accent-card">
+<h4 class="font-headline-md text-headline-md mb-1">Kimi ANTONELLI</h4>
+<p class="font-label-mono text-label-mono text-on-surface-variant uppercase mb-4">Mercedes • ITA</p>
+<div class="flex justify-between items-center">
+<span class="text-xs uppercase font-label-mono text-on-surface-variant">Position</span>
+<span class="font-stat-value text-stat-value">1st</span>
+</div>
+</div>
+</div>
+<div class="bg-surface-container group overflow-hidden border border-outline-variant/20 hover:border-primary/50 transition-all">
+<div class="h-64 overflow-hidden relative">
+<!-- <img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" data-alt="A close-up high-speed photograph of Charles Leclerc in a Ferrari racing suit, looking focused. The background is a blurred pit lane with warm industrial lights and cool dark shadows. The visual style is modern and professional, with high-definition textures and deep reds representing the team's identity." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBfhB-QQk-rbx4fAizqhi0ik29tGz2f0tJyknhswJxlV2TO0qoNSdr_LtmSJMg-f8F_zO-Nugc4JJIKHMWLPKKTPAuoW7SzqZqS7GKqmGqSNMW11M9RX4RTuc0pzaYIF1l3OCKV6_aQThTjdpRNqMaWi9q7OYB16y3v6g0iLQavONR0R8Kydmy9E9ewbj-11cmRd2SyXIcJRIdYIeS2X7wXzljWD2tf9yE4gc9EpF5dMUMop41knon9sdDSMbgaCl-KzqeYeNaKwbC1"/> -->
+<div class="absolute top-4 right-4 bg-primary text-on-primary font-black px-3 py-1 font-stat-value">16</div>
+</div>
+<div class="p-6 red-accent-card">
+<h4 class="font-headline-md text-headline-md mb-1">Charles Leclerc</h4>
+<p class="font-label-mono text-label-mono text-on-surface-variant uppercase mb-4">Ferrari • MON</p>
+<div class="flex justify-between items-center">
+<span class="text-xs uppercase font-label-mono text-on-surface-variant">Position</span>
+<span class="font-stat-value text-stat-value">3rd</span>
+</div>
+</div>
+</div>
+<div class="bg-surface-container group overflow-hidden border border-outline-variant/20 hover:border-primary/50 transition-all">
+<div class="h-64 overflow-hidden relative">
+<!-- <img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" data-alt="Lewis Hamilton captured in a professional studio setup with high-contrast chiaroscuro lighting. He is wearing his Mercedes-AMG Petronas racing gear. The aesthetic is clean, sharp, and high-performance, with a dark background that makes the silver and teal accents of his suit stand out." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDS6sCJ4d94Podh8iMFiB4srylvznushuqv1yzFM6S929E7MobSwGBV_TEkVkYOgrzmlCkL1424kqoNIgk7HoMdYawLYk9nJEBodGV4ywvOmfieuHDdgD5N9jjC1BCs1kWnoYE9Svu7nJnYfD9FHSbGY7X-qgiMDsvlNcXm90OKUUoqcHRo28CqVea7ScBbMfPJOBnq3enS4WFiK-9mDSxM0Wv8535IfvM-QFHKHw2nOZYTx3_mHCskYgtVW11iQKx0rY1IhNf6RoyL"/> -->
+<div class="absolute top-4 right-4 bg-primary text-on-primary font-black px-3 py-1 font-stat-value">3</div>
+</div>
+<div class="p-6 red-accent-card">
+<h4 class="font-headline-md text-headline-md mb-1">Max Verstappen</h4>
+<p class="font-label-mono text-label-mono text-on-surface-variant uppercase mb-4">Red Bull Racing • NED</p>
+<div class="flex justify-between items-center">
+<span class="text-xs uppercase font-label-mono text-on-surface-variant">Position</span>
+<span class="font-stat-value text-stat-value">7th</span>
+</div>
+</div>
+</div>
+<div class="bg-surface-container group overflow-hidden border border-outline-variant/20 hover:border-primary/50 transition-all">
+<div class="h-64 overflow-hidden relative">
+<!-- <img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" data-alt="Action shot of Fernando Alonso in the Aston Martin garage, surrounded by telemetry screens and technical equipment. The atmosphere is intense and engineering-focused. Dark charcoal colors dominate the scene, punctuated by the vibrant lime-green accents of his gear and the sharp red of warning lights." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAzirSR-pHjxykV3BPF5OAScEEE8ElfRlu-G4mza_yyFbnXbyoaC-LCRybJDzz-HoliJIMKJS2UjpWJO_x62Z_0wgOsynNy6h9TW8t5OlgdyQVtYUIIvOOqZqX7GxI5rzh_2QcYcBAksD4AFtnAxeD1ymI4Ps0ie2RYaUdR6lYjW6eUdhEmPilsxDzYIzZo8RhSzy1I-8Reh6rfH1H-dACKYLBDiBGuLlnMpnYoh9_5Rhy_y5uR9BMKb0RysSkTrfmlHLlvk5pgkqg6"/> -->
+<div class="absolute top-4 right-4 bg-primary text-on-primary font-black px-3 py-1 font-stat-value">1</div>
+</div>
+<div class="p-6 red-accent-card">
+<h4 class="font-headline-md text-headline-md mb-1">Lando Norris</h4>
+<p class="font-label-mono text-label-mono text-on-surface-variant uppercase mb-4">McLaren • UK</p>
+<div class="flex justify-between items-center">
+<span class="text-xs uppercase font-label-mono text-on-surface-variant">Position</span>
+<span class="font-stat-value text-stat-value">5th</span>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Featured Teams (Bento Grid Style) -->
+<section class="px-margin-mobile md:px-margin-desktop max-w-max-width mx-auto">
+<h2 class="font-headline-lg text-headline-lg uppercase mb-8">Engineering Powerhouses</h2>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+<!-- Large Team Card -->
+<div class="md:col-span-2 bg-surface-container-high p-8 flex flex-col md:flex-row gap-8 items-center border border-outline-variant/20 relative overflow-hidden">
+<div class="absolute bottom-0 right-0 opacity-10 pointer-events-none">
+<img class="w-96 h-auto" data-alt="A 3D render of a Red Bull Racing Formula 1 car in a minimalist dark environment. Only the sharpest contours of the aerodynamic body are caught by a single overhead red light. High-tech carbon fiber textures are visible in the close-up details." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCmW1MagFU33paOGNT_PhnBd_B9DcTgV39EivRASdCv7YkroAZ7J0enT6l1DXTRgSJP7ny1TxR6OP7YObrT-MbElZdKQKz2Hn2EhOU7T3YcHWzFHPKbvjMq0ft502GQg5IlVG_z7IYBvCBBg_x9iKwHOaM9C8kN2QbO9TafxQGgiztF22rT612u5g0c1Nf7GHmgq4ml8oPQ_P2TN5Ms9d9zW1hF4k-PaayPcTm7ZjjEKxP7yldbcvCgWNF9CzbCcUsV6ABG7mfQAeM7"/>
+</div>
+<div class="w-24 h-24 flex-shrink-0 bg-white p-4 rounded-none">
+<img class="w-full h-full object-contain" data-alt="Red Bull Racing official logo, clean vector style on a white square background for high contrast." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDLswQ8_k1PDGmfapaInSXxob4ETCv6nHFjnldCxr4RPnESpPvmRhZsMV1YjcjnncoWpYN3Z_9IEiyOUrr7szqJsbs9jz6gjLzYev9mCZYws8Xi-7GwK07Yo4joob8afWAIBj0gCBTTE-mIzR_Ug5JI0yORPjO1dEe2TSJw_cQYqMVRBaOpEU4GsN3r7d0BBr78inf8MVEU2stPM1BfrNjYmzUeChja7BLxBeBMnqtLSUnnfjZWxlIlVySX1dlB9dr-_BSqKFu5zFGO"/>
+</div>
+<div class="flex-1 space-y-4">
+<h3 class="font-headline-lg text-headline-lg uppercase italic">Oracle Red Bull Racing</h3>
+<div class="flex gap-8">
+<div>
+<p class="text-xs font-label-mono text-on-surface-variant uppercase">Drivers</p>
+<p class="font-body-lg">Verstappen, Hadjar</p>
+</div>
+<div>
+<p class="text-xs font-label-mono text-on-surface-variant uppercase">Points</p>
+<p class="font-stat-value text-stat-value text-primary">57</p>
+</div>
+</div>
+</div>
+</div>
+<!-- Regular Team Card -->
+<div class="bg-surface-container-high p-8 flex flex-col gap-6 border border-outline-variant/20">
+<div class="w-16 h-16 bg-white p-3">
+<img class="w-full h-full object-contain" data-alt="Scuderia Ferrari official logo, featuring the prancing horse on a yellow shield, presented with sharp detail on a white background." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDifM9Q8HgMFjZTDitRnAVbDQa5tl7TjUOuQObjton6cfPbi0Vu1WrV_1e50x7zrmJ7fxJT0RTjbLVCf2LBmLRLwh43-Dx0PPjVe66Knqz5VtfctE99M6v1ih2nhhpWoPAnx6izatgDQ0CKeUpxwRPXqoE5zHv4SVPqfNzRrP-PoiRweyrZKNlB6xZmdMQ6Sro8WLRdhtE8BkJeq9iOibDuU1OEf1p0u20IUWUPH1xqdQ6ZV84_in1G1YCrFKWAgBbS-UbwXF7C2-_O"/>
+</div>
+<div>
+<h3 class="font-headline-md text-headline-md uppercase italic">Scuderia Ferrari</h3>
+<p class="text-xs font-label-mono text-on-surface-variant uppercase mt-2">Points</p>
+<p class="font-stat-value text-stat-value text-primary">147</p>
+</div>
+</div>
+<div class="bg-surface-container-high p-8 flex flex-col gap-6 border border-outline-variant/20">
+<div class="w-16 h-16 bg-white p-3">
+<img class="w-full h-full object-contain" data-alt="McLaren Racing official logo, minimalist papaya orange swoosh on a white background." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCtbBW69n7HZ9GwswlGZC2T685BBvi6f3JaANt2PswtssE7u8E40rqyh-ydc7NJ8adkjIKU24s5usifhmaqL4soZl2rYnzm2fYiDh8FJXr38be4-E4FlSIvw4Wb8l-dmxMQcpXJ4ZMIDM3SzCgJt_Z0iGfHzyI0dUflLyljOaqCJSmHXre2t8kirxDNUNry7CSwcQ0Wt2tlSi3S2QfBjgsdbSAqcpWD6tcWHfYqnmEYg7yggrrcisTkaCLZpla9B42-4iuzL0-kXD1p"/>
+</div>
+<div>
+<h3 class="font-headline-md text-headline-md uppercase italic">McLaren F1 Team</h3>
+<p class="text-xs font-label-mono text-on-surface-variant uppercase mt-2">Points</p>
+<p class="font-stat-value text-stat-value text-primary">106</p>
+</div>
+</div>
+<div class="md:col-span-2 bg-surface-container-high p-8 flex flex-col md:flex-row gap-8 items-center border border-outline-variant/20">
+<div class="w-24 h-24 flex-shrink-0 bg-white p-4">
+<img class="w-full h-full object-contain" data-alt="Mercedes-AMG Petronas F1 Team official logo, clean silver three-pointed star in a circle, vector style on white." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDygQJGHxyH4AWInBwsJr63KestU8iEdDfoAvyCUIXV-_3XkvWSAnBOzbt7PUAcweZic2TA75EtAfFlQaxuerl7mGJj-l7XCv7nmQPPJhWdMf0nm-DxNVumq1k8U10W7G36tFzfdQfDcJdRJTexIMRlahAc_ljFRx1fp3WxC4VYfRxinpTpGuTWUIxUeukXyobej1JeoawTzV3pk5WkoaPvKKvAr5PZpX8u4O670kCvQg6DabcPqXNnMzIfpX_sF7ovxplkM3ycB4mJ"/>
+</div>
+<div class="flex-1 space-y-4">
+<h3 class="font-headline-lg text-headline-lg uppercase italic">Mercedes-AMG Petronas</h3>
+<div class="flex gap-8">
+<div>
+<p class="text-xs font-label-mono text-on-surface-variant uppercase">Drivers</p>
+<p class="font-body-lg">Antonelli, Russell</p>
+</div>
+<div>
+<p class="text-xs font-label-mono text-on-surface-variant uppercase">Points</p>
+<p class="font-stat-value text-stat-value text-primary">219</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Upcoming Race Calendar -->
+<section class="px-margin-mobile md:px-margin-desktop max-w-max-width mx-auto">
+<div class="flex justify-between items-center mb-8">
+<h2 class="font-headline-lg text-headline-lg uppercase">Race Calendar 2026</h2>
+<div class="hidden md:flex gap-2">
+<button class="p-2 border border-outline-variant hover:bg-primary/10 transition-colors"><span class="material-symbols-outlined">chevron_left</span></button>
+<button class="p-2 border border-outline-variant hover:bg-primary/10 transition-colors"><span class="material-symbols-outlined">chevron_right</span></button>
+</div>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-1">
+<!-- Calendar Item -->
+<div class="bg-surface-container-low p-6 flex justify-between items-center group hover:bg-surface-variant transition-colors border-l-2 border-transparent hover:border-primary">
+<div>
+<p class="font-label-mono text-label-mono text-primary mb-1">06-8 MAR</p>
+<h4 class="font-headline-md text-headline-md">GP Australia</h4>
+<p class="text-xs text-on-surface-variant uppercase">Circuit Albert Park</p>
+</div>
+<span class="material-symbols-outlined text-outline-variant group-hover:text-primary transition-colors">flag</span>
+</div>
+<!-- Calendar Item -->
+<div class="bg-surface-container-low p-6 flex justify-between items-center group hover:bg-surface-variant transition-colors border-l-2 border-transparent hover:border-primary">
+<div>
+<p class="font-label-mono text-label-mono text-primary mb-1">13-15 MAR</p>
+<h4 class="font-headline-md text-headline-md">GP China</h4>
+<p class="text-xs text-on-surface-variant uppercase">Circuit International Shangai</p>
+</div>
+<span class="material-symbols-outlined text-outline-variant group-hover:text-primary transition-colors">flag</span>
+</div>
+<!-- Calendar Item -->
+<div class="bg-surface-container-low p-6 flex justify-between items-center group hover:bg-surface-variant transition-colors border-l-2 border-transparent hover:border-primary">
+<div>
+<p class="font-label-mono text-label-mono text-primary mb-1">27-29 JAP</p>
+<h4 class="font-headline-md text-headline-md">GP Japon</h4>
+<p class="text-xs text-on-surface-variant uppercase">Suzuka</p>
+</div>
+<span class="material-symbols-outlined text-outline-variant group-hover:text-primary transition-colors">flag</span>
+</div>
+<!-- Calendar Item -->
+<div class="bg-surface-container-low p-6 flex justify-between items-center group hover:bg-surface-variant transition-colors border-l-2 border-transparent hover:border-primary">
+<div>
+<p class="font-label-mono text-label-mono text-primary mb-1">1-3 MAY</p>
+<h4 class="font-headline-md text-headline-md">GP Miami</h4>
+<p class="text-xs text-on-surface-variant uppercase">Miami International Autodrome</p>
+</div>
+<span class="material-symbols-outlined text-outline-variant group-hover:text-primary transition-colors">flag</span>
+</div>
+<!-- Calendar Item -->
+<div class="bg-surface-container-low p-6 flex justify-between items-center group hover:bg-surface-variant transition-colors border-l-2 border-transparent hover:border-primary">
+<div>
+<p class="font-label-mono text-label-mono text-primary mb-1">22-24 MAY</p>
+<h4 class="font-headline-md text-headline-md">GP Canada</h4>
+<p class="text-xs text-on-surface-variant uppercase">Circuit Gilles - Villeneuve</p>
+</div>
+<span class="material-symbols-outlined text-outline-variant group-hover:text-primary transition-colors">flag</span>
+</div>
+<!-- Calendar Item -->
+<div class="bg-surface-container-low p-6 flex justify-between items-center group hover:bg-surface-variant transition-colors border-l-2 border-transparent hover:border-primary">
+<div>
+<p class="font-label-mono text-label-mono text-primary mb-1">5-7 JUN</p>
+<h4 class="font-headline-md text-headline-md">GP Mónaco</h4>
+<p class="text-xs text-on-surface-variant uppercase">Circuit Mónaco</p>
+</div>
+<span class="material-symbols-outlined text-outline-variant group-hover:text-primary transition-colors">flag</span>
+</div>
+</div>
+</section>
+<!-- Featured Circuits -->
+<section class="px-margin-mobile md:px-margin-desktop max-w-max-width mx-auto">
+<h2 class="font-headline-lg text-headline-lg uppercase mb-8">Legendary Circuits</h2>
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+<!-- Circuit Card -->
+<div class="group bg-surface-container overflow-hidden border border-outline-variant/20">
+<div class="h-48 relative overflow-hidden bg-black flex items-center justify-center p-8">
+<!-- <img class="max-w-full max-h-full object-contain opacity-80 group-hover:opacity-100 transition-opacity" data-alt="Technical layout of the Monaco street circuit, represented as a crisp white line on a deep dark charcoal background. The map shows every corner, including the famous hairpin and tunnel section. The style is that of a high-performance telemetry dashboard, minimal and precise." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCNU1eoAQLvtE_fp8ftBpomEYQbhtgBEoG8dJas4JVOAcTmUg-8M3Gt4iixabHHn6QIuN6Wq1roR8-6g_XnKJ9iE0gDD2yzVR-T5L2hatGUBs1Lcnn_hUSxpTtCOJYG-vS3kt7LTslka11q7AQM-6MOH2vhs_wXg6miYRc_JImUGoGsZvlxPooBG9UwTIv79ZbSrifMUWoUkaXDiZIFsLUDgfJoOENiaxOAJni_tghN6GOWIPihJBUbulxvXimjCsJdl_iil0E0H-Vc"/> -->
+</div>
+<div class="p-6 red-accent-card">
+<h4 class="font-headline-md text-headline-md uppercase">Monaco</h4>
+<p class="font-label-mono text-label-mono text-on-surface-variant mb-4">Monte Carlo, Monaco</p>
+<div class="grid grid-cols-2 gap-4 pt-4 border-t border-outline-variant/20">
+<div>
+<p class="text-[10px] uppercase font-label-mono text-on-surface-variant">Length</p>
+<p class="font-stat-value text-sm">3.337 km</p>
+</div>
+<div>
+<p class="text-[10px] uppercase font-label-mono text-on-surface-variant">Laps</p>
+<p class="font-stat-value text-sm">78</p>
+</div>
+</div>
+</div>
+</div>
+<!-- Circuit Card -->
+<div class="group bg-surface-container overflow-hidden border border-outline-variant/20">
+<div class="h-48 relative overflow-hidden bg-black flex items-center justify-center p-8">
+<!-- <img class="max-w-full max-h-full object-contain opacity-80 group-hover:opacity-100 transition-opacity" data-alt="A technical blueprint map of the Spa-Francorchamps circuit in Belgium. The drawing is minimalist, using neon red and crisp white lines on a dark mode background. It highlights the high-speed Eau Rouge and Raidillon sections with technical precision." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDZX2HIIoqaVyPGiMrmdAAcHaGVDFxuw41satVW5y8rbXliV4GLst9Vv_cc7bo1mpr-03Wq1ndMYg35mPeF3m1XVPQdy02yqZLUwNPsX5esGcqstJe4V97RUSavzhWHBh4tirvb8_PwPUiymIMTJhUMThryN5N20ZgyDT5MfBo4OcqKw6AhKMlDXSzm7tPD68KwluW2ZO8QoHqbD5ILtUWDIYd1SZKxQbqL727i5SY5k8vdJIGGVueAqmn-K-YNDbr0Ku1PdMZsGSSk"/> -->
+</div>
+<div class="p-6 red-accent-card">
+<h4 class="font-headline-md text-headline-md uppercase">Spa-Francorchamps</h4>
+<p class="font-label-mono text-label-mono text-on-surface-variant mb-4">Stavelot, Belgium</p>
+<div class="grid grid-cols-2 gap-4 pt-4 border-t border-outline-variant/20">
+<div>
+<p class="text-[10px] uppercase font-label-mono text-on-surface-variant">Length</p>
+<p class="font-stat-value text-sm">7.004 km</p>
+</div>
+<div>
+<p class="text-[10px] uppercase font-label-mono text-on-surface-variant">Laps</p>
+<p class="font-stat-value text-sm">44</p>
+</div>
+</div>
+</div>
+</div>
+<!-- Circuit Card -->
+<div class="group bg-surface-container overflow-hidden border border-outline-variant/20">
+<div class="h-48 relative overflow-hidden bg-black flex items-center justify-center p-8">
+<!-- <img class="max-w-full max-h-full object-contain opacity-80 group-hover:opacity-100 transition-opacity" data-alt="Silverstone Circuit track map in a modern, technical style. The lines are thin and sharp, rendered in a striking white against a deep pit-lane dark background. The layout emphasizes the fast, sweeping corners of the legendary British track." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCjtvDpI-tgr0fgJsZyRmm9YwKCaxUdDs95jyPCAIHfCPPfdou1GytJEKxkVt50I4uQJ3yJn2As5oige775NXQYnisvrPKwvUnGoOCK8f9j4GYrnlEBXERGioOYPEK1b7Z_M5wbsE_RfAu-EcbnHOxcla4YzJD_g7kj25Y_4j-aXfYtYl7-qRj9_zpu_8ykwzlibSfbweIKw9-F8x8BAEFlTzpyhvB30KcK_eIp7XPp3mdWzCw2HcRbtfgBrgODMyyZJ_jDEfJhRP2D"/> -->
+</div>
+<div class="p-6 red-accent-card">
+<h4 class="font-headline-md text-headline-md uppercase">Silverstone</h4>
+<p class="font-label-mono text-label-mono text-on-surface-variant mb-4">Silverstone, UK</p>
+<div class="grid grid-cols-2 gap-4 pt-4 border-t border-outline-variant/20">
+<div>
+<p class="text-[10px] uppercase font-label-mono text-on-surface-variant">Length</p>
+<p class="font-stat-value text-sm">5.891 km</p>
+</div>
+<div>
+<p class="text-[10px] uppercase font-label-mono text-on-surface-variant">Laps</p>
+<p class="font-stat-value text-sm">52</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+</main>
+<!-- Footer -->
+<footer class="bg-surface-container-lowest border-t border-outline-variant/50 mt-24">
+<div class="py-12 px-margin-mobile md:px-margin-desktop max-w-max-width mx-auto flex flex-col md:flex-row justify-between items-start gap-12">
+<div class="space-y-6 max-w-sm">
+<img alt="Mundo F1" class="h-8" src="data:image/png;base64,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"/>
+<p class="font-body-md text-body-md text-on-secondary-container">
+                    La plataforma definitiva para el análisis técnico y seguimiento en tiempo real de la Fórmula 1. Ingeniería de datos aplicada al deporte motor.
+                </p>
+<div class="flex gap-4">
+<a class="w-10 h-10 flex items-center justify-center border border-outline-variant hover:bg-primary/10 transition-colors" href="#">
+<span class="material-symbols-outlined text-sm">share</span>
+</a>
+<a class="w-10 h-10 flex items-center justify-center border border-outline-variant hover:bg-primary/10 transition-colors" href="#">
+<span class="material-symbols-outlined text-sm">analytics</span>
+</a>
+</div>
+</div>
+<div class="grid grid-cols-2 md:grid-cols-3 gap-12">
+<div>
+<h5 class="font-label-mono text-label-mono text-primary uppercase mb-6">Navigation</h5>
+<ul class="space-y-4 text-on-secondary-container">
+<li><a class="hover:text-primary transition-colors" href="#">Home</a></li>
+<li><a class="hover:text-primary transition-colors" href="#">Drivers</a></li>
+<li><a class="hover:text-primary transition-colors" href="#">Teams</a></li>
+<li><a class="hover:text-primary transition-colors" href="#">Circuits</a></li>
+</ul>
+</div>
+<div>
+<h5 class="font-label-mono text-label-mono text-primary uppercase mb-6">Engineering</h5>
+<ul class="space-y-4 text-on-secondary-container">
+<li><a class="hover:text-primary transition-colors" href="#">Telemetry Data</a></li>
+<li><a class="hover:text-primary transition-colors" href="#">Technical Logs</a></li>
+<li><a class="hover:text-primary transition-colors" href="#">API Access</a></li>
+<li><a class="hover:text-primary transition-colors" href="#">Media Kit</a></li>
+</ul>
+</div>
+<div class="col-span-2 md:col-span-1">
+<h5 class="font-label-mono text-label-mono text-primary uppercase mb-6">Legal</h5>
+<ul class="space-y-4 text-on-secondary-container">
+<li><a class="hover:text-primary transition-colors" href="#">Privacy Policy</a></li>
+<li><a class="hover:text-primary transition-colors" href="#">Terms of Service</a></li>
+<li><a class="hover:text-primary transition-colors" href="#">Cookie Settings</a></li>
+</ul>
+</div>
+</div>
+</div>
+<div class="border-t border-outline-variant/20 py-8">
+<div class="px-margin-mobile md:px-margin-desktop max-w-max-width mx-auto flex flex-col md:flex-row justify-between items-center gap-4 text-on-secondary-container text-xs font-label-mono">
+<p>© 2024 Mundo F1. Technical Precision &amp; Engineering Excellence.</p>
+<p>Designed for High Performance Environments.</p>
+</div>
+</div>
+</footer>
+<script>
+        // Simple Countdown Logic
+        function updateCountdown() {
+            const now = new Date().getTime();
+            const raceDate = new Date().getTime() + (4 * 24 * 60 * 60 * 1000); // 4 days from now for demo
+            const diff = raceDate - now;
+
+            const d = Math.floor(diff / (1000 * 60 * 60 * 24));
+            const h = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const m = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+            const s = Math.floor((diff % (1000 * 60)) / 1000);
+
+            document.getElementById('days').innerText = d.toString().padStart(2, '0');
+            document.getElementById('hours').innerText = h.toString().padStart(2, '0');
+            document.getElementById('mins').innerText = m.toString().padStart(2, '0');
+            document.getElementById('secs').innerText = s.toString().padStart(2, '0');
+        }
+        setInterval(updateCountdown, 1000);
+        updateCountdown();
+
+        // Parallax effect for hero
+        window.addEventListener('scroll', () => {
+            const scrolled = window.pageYOffset;
+            const heroImage = document.querySelector('header img');
+            if(heroImage) {
+                heroImage.style.transform = `translateY(${scrolled * 0.4}px)`;
+            }
+        });
+    </script>
+</body></html>
