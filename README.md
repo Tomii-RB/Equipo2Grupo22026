@@ -145,6 +145,9 @@ Actualmente se encuentra finalizada la etapa inicial de investigación y definic
 
 Se han definido:
 
+
+* Presupuesto
+* Requerimentos a nivel cliente
 * Temática y alcance del sistema.
 * Funcionalidades principales.
 * Tecnologías a utilizar.
