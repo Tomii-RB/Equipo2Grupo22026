@@ -113,8 +113,8 @@ Para garantizar la disponibilidad de la plataforma web, asegurar un tiempo de re
 
 | Concepto / Recurso | Proveedor Sugerido | Descripción / Capacidad | Costo Mensual Estimado |
 | :--- | :--- | :--- | :---: |
-| **Backend & API Hosting** | Render / Railway / Fly.io | Servidor web administrado para alojar el código de la API intermedia (512MB - 1GB RAM, CPU Compartida). | \$7.00 - \$12.00 USD |
-| **Caché y Base de Datos** | Supabase / Neon | Base de datos relacional ligera o almacenamiento Key-Value para guardar configuraciones y actuar como caché (evita hacer consultas repetitivas a la API OpenF1 y sobrepasar límites de tasa). | \$0.00 *(Capa gratuita)* a \$5.00 USD |
+| **Backend & API Hosting** | Render / | Servidor web administrado para alojar el código de la API intermedia (512MB - 1GB RAM, CPU Compartida). | \$7.00 - \$12.00 USD |
+| **Caché y Base de Datos** |  Neon | Base de datos relacional ligera o almacenamiento Key-Value para guardar configuraciones y actuar como caché (evita hacer consultas repetitivas a la API OpenF1 y sobrepasar límites de tasa). | \$0.00 *(Capa gratuita)* a \$5.00 USD |
 | **Red de Datos y Seguridad** | Cloudflare | Red de distribución (CDN) para el contenido estático, aprovisionamiento de certificados SSL/HTTPS automáticos y mitigación de ataques. | \$0.00 *(Capa gratuita)* |
-| **Dominio Personalizado** | Namecheap / Porkbun | Compra y renovación del dominio único del proyecto (`mundof1.com` o similar). Aprox. \$12.00 anuales. | \$1.00 USD |
+| **Dominio Personalizado** | Namecheap  | Compra y renovación del dominio único del proyecto (`mundof1.com` o similar). Aprox. \$12.00 anuales. | \$1.00 USD |
 | **Costo Total Estimado** | | **Operación activa 24/7** | **\$8.00 - \$18.00 USD / mes** |
