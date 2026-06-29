@@ -109,8 +109,7 @@ Las próximas tareas estarán enfocadas en el diseño de la interfaz y la constr
 ## 💰 Presupuesto de Infraestructura y Despliegue (Backend y API)
 Para garantizar la disponibilidad de la plataforma web, asegurar un tiempo de respuesta óptimo y manejar el almacenamiento de los archivos JSON complementarios de forma centralizada, se plantea la siguiente estructura de costos mensuales estimados para un entorno de producción inicial:
 
-### Opción Recomendada: Plataforma como Servicio (PaaS / Serverless)
-*Recomendado por su facilidad de configuración, mantenimiento automatizado sin necesidad de configurar Linux, y excelente velocidad de respuesta para arquitecturas API REST.*
+
 
 | Concepto / Recurso | Proveedor Sugerido | Descripción / Capacidad | Costo Mensual Estimado |
 | :--- | :--- | :--- | :---: |
