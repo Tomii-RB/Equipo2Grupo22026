@@ -1,0 +1,444 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>MUNDO F1 | 2024 Calendar</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Chivo:ital,wght@0,400;0,700;0,800;0,900;1,900&amp;family=JetBrains+Mono:wght@400;500;700&amp;family=Hanken+Grotesk:wght@400;600&amp;family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Chivo:wght@100..900&amp;family=Hanken+Grotesk:wght@100..900&amp;family=JetBrains+Mono:wght@100..900&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+              "colors": {
+                      "outline-variant": "#5e3f3a",
+                      "outline": "#af8781",
+                      "on-primary-fixed": "#410100",
+                      "surface-container-lowest": "#0d0d16",
+                      "on-secondary-container": "#b9b7c1",
+                      "tertiary-fixed-dim": "#c6c6c7",
+                      "on-error-container": "#ffdad6",
+                      "surface-container-high": "#292933",
+                      "tertiary-container": "#6f7070",
+                      "error-container": "#93000a",
+                      "on-secondary-fixed-variant": "#46464e",
+                      "secondary-container": "#494851",
+                      "inverse-primary": "#c00500",
+                      "surface-dim": "#13131b",
+                      "surface-container-highest": "#34343e",
+                      "on-background": "#e4e1ee",
+                      "secondary-fixed": "#e4e1ec",
+                      "on-tertiary-container": "#f5f5f5",
+                      "on-secondary": "#303038",
+                      "on-secondary-fixed": "#1b1b22",
+                      "on-tertiary-fixed-variant": "#454747",
+                      "on-primary-fixed-variant": "#930300",
+                      "secondary-fixed-dim": "#c7c5d0",
+                      "on-surface": "#e4e1ee",
+                      "inverse-on-surface": "#302f39",
+                      "on-error": "#690005",
+                      "inverse-surface": "#e4e1ee",
+                      "primary-fixed": "#ffdad4",
+                      "surface-bright": "#393842",
+                      "error": "#ffb4ab",
+                      "on-primary": "#680200",
+                      "surface-tint": "#ffb4a8",
+                      "on-tertiary": "#2f3131",
+                      "primary-container": "#e10600",
+                      "secondary": "#c7c5d0",
+                      "surface-container-low": "#1b1b24",
+                      "tertiary": "#c6c6c7",
+                      "on-tertiary-fixed": "#1a1c1c",
+                      "surface-container": "#1f1f28",
+                      "background": "#13131b",
+                      "surface-variant": "#34343e",
+                      "on-surface-variant": "#e9bcb5",
+                      "tertiary-fixed": "#e2e2e2",
+                      "primary": "#ffb4a8",
+                      "surface": "#13131b",
+                      "on-primary-container": "#fff2f0",
+                      "primary-fixed-dim": "#ffb4a8"
+              },
+              "borderRadius": {
+                      "DEFAULT": "0.25rem",
+                      "lg": "0.5rem",
+                      "xl": "0.75rem",
+                      "full": "9999px"
+              },
+              "spacing": {
+                      "margin-desktop": "48px",
+                      "max-width": "1440px",
+                      "gutter": "24px",
+                      "margin-mobile": "16px",
+                      "unit": "4px"
+              },
+              "fontFamily": {
+                      "body-lg": ["Hanken Grotesk"],
+                      "stat-value": ["Chivo"],
+                      "headline-xl": ["Chivo"],
+                      "headline-md": ["Chivo"],
+                      "label-mono": ["JetBrains Mono"],
+                      "headline-lg-mobile": ["Chivo"],
+                      "headline-lg": ["Chivo"],
+                      "body-md": ["Hanken Grotesk"]
+              },
+              "fontSize": {
+                      "body-lg": ["18px", {"lineHeight": "1.6", "fontWeight": "400"}],
+                      "stat-value": ["20px", {"lineHeight": "1.0", "fontWeight": "900"}],
+                      "headline-xl": ["48px", {"lineHeight": "1.1", "letterSpacing": "-0.02em", "fontWeight": "900"}],
+                      "headline-md": ["24px", {"lineHeight": "1.3", "fontWeight": "700"}],
+                      "label-mono": ["14px", {"lineHeight": "1.0", "letterSpacing": "0.05em", "fontWeight": "500"}],
+                      "headline-lg-mobile": ["28px", {"lineHeight": "1.2", "fontWeight": "800"}],
+                      "headline-lg": ["32px", {"lineHeight": "1.2", "letterSpacing": "-0.01em", "fontWeight": "800"}],
+                      "body-md": ["16px", {"lineHeight": "1.5", "fontWeight": "400"}]
+                    }
+                },
+            },
+        }
+    </script>
+<style>
+        .speed-line {
+            background: linear-gradient(90deg, transparent, rgba(255, 180, 168, 0.3), transparent);
+            height: 1px;
+            width: 100%;
+        }
+        .circuit-mask {
+            mask-image: linear-gradient(to bottom, black 60%, transparent);
+        }
+        .custom-scrollbar::-webkit-scrollbar {
+            width: 4px;
+        }
+        .custom-scrollbar::-webkit-scrollbar-track {
+            background: #13131b;
+        }
+        .custom-scrollbar::-webkit-scrollbar-thumb {
+            background: #e10600;
+        }
+        .hover-reveal {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        .calendar-row:hover .hover-reveal {
+            max-height: 200px;
+        }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+    </style>
+</head>
+<body class="bg-background text-on-surface font-body-md selection:bg-primary-container selection:text-on-primary-container">
+<!-- TopNavBar -->
+<nav class="fixed top-0 w-full z-50 bg-surface/60 backdrop-blur-md border-b border-outline-variant/50">
+<div class="flex justify-between items-center px-margin-mobile md:px-margin-desktop max-w-max-width mx-auto h-20">
+<div class="flex items-center gap-4">
+<img alt="Mundo F1" class="h-8 md:h-10" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAZAAAAB4CAYAAADc36SXAAAQAElEQVR4AexdC5glRXU+vbMzO8vLECDowj4kBGH5wICAvJf3ihDCZwAV/BBIMLxE+CISUcFASJQQCFFeXwwsKssjRhJdMSDPXR6CC+wqsiIIu8BCcMHIYth57Ez7nzszuzP3dlV1963u24//fnVud1edOqfqr3vrdNXpqp4k/BABIkAEiAARSIEADUgK0JiFCBABIkAERGhA+CsgAp1CgHqJQMkRoAEpeQOy+ESACBCBTiFAA9Ip5KmXCBABIlByBEpsQEqOPItPBIgAESg5AjQgJW9AFp8IEAEi0CkEaEA6hTz1EoESI8CiEwFFgAZEUSARASJABIhAYgRoQBJDxgxEgAgQASKgCNCAKAp5E/URASJABCqAAA1IBRqRVSACRIAIdAIBGpBOoE6dRIAIdAoB6vWIAA2IRzApiggQASJQJwRoQOrU2qwrESACRMAjAjQgHsGsgyjWkQgQASIwhgANyBgSPBIBIkAEiEAiBGhAEsFFZiJABIhApxAonl4akOK1CUtEBIgAESgFAjQgpWgmFpIIEAEiUDwEvBuQFd0yb0WPhKQWDGb7an5gOxtEjJt+Z8u7ZYmYP0whAkTAMwLeDcikQTkdZXwGxDARgWMnXrZ15VNWWwUpUuZAZJ7wQwSIQG4IeDcg00XWhANyjITyTm61KIei4zwW06csj8XqnKgwlMHuQfl250pAzUSgfgjENiBJoJklsgx3g2cmyVMD3tkvi2zbbj1HZXibDmu3PEXJHwRy5zSRN4pSHpaDCNQBgUwMiAI3Y1DmYRRyk/CzDoHhHjlh3UXKEx8yUqoudLZgSDh9JfwQgXwRyMyAaDUm0R+iMIwnH1NPPmSML1PpzzF9tWr6kCwofUWMFWACESgmApkaEPpDWhq9rWksTl+14NmIwHTpfNDaxgW/iAARyA2BTA2I1oL+EEVhPbUzBdVO3vUlqN5ZF5++ql6jskalQCBzA6IodNgfokUoErUzBdVO3iJh4K0smL5auvWgLBF+iAARyB2BXAyI1or+EEWhQammsTh91cCu5QtTV3Set6DCCCKQDwK5GRD6Q9Y3aJqpqDR51mus5hlGH1z7UfSmZfkqjUBuBkRRpD9EUWhQmqmoNHkayqr6xbUfVW1Z1qssCORqQBQU+kMUBUk0jcXpqwZmLV9c+9ECCSOIQK4I5G5AtHb0h4jEm5JStJLxjuSo/jemr7j2o/rNzBoWHIGOGBD6Qxq/iiRTUkl4G8Kr/gXnOdd+VL2RWb/CI9ARA6Ko0B8SbxqL01f6a2klrv1oxYQxfhGgNDcCHTMgWrS6+0PiTGPF4VEs60SYvuLajzo1OOtaWAQ6akAUlZr7Q+JMTcXhUShrQ5i+4tqP2rQ2K1pkBDpuQGruD7E+jVXq6auMfvUYfXDtR0bYUmwyBFZ0y1XLu+WBTtCrIjOTlTYet/Y5qM+aFT0SKi3vkV/YcnbcgGjh6uwPsU1R2dIUtzoS137UsdWLWedQ5P34Pc7pBA2IbOAbFdQnGO6W+ahPb1zZhTAgWtga+0OO0/obyJZmyFLtaK79qHb7snZeEEgl5KVu+bQEsnuSzIUxIFromvpDIqexdCgJTPjmQYAwFjB9xbUfY2DwSAQ8IvDKZDkQI5B/SiqyUAakrv6QqKmqqLikjVs1fjjP54P43o+qNSzr01EEXumWPx0KZAGmrnqSFqRQBkQLX1N/SNRUVVScQlRbymvtR20BrnDFwzCcBvoo6LOgK0C3gR4EPQD6Puhm0LWg00F/2BYUodyG/BdnSVNE3oD8tsNKkfcNidyDqatUPpXCGRBFpIb+kAnTWJ2evgo23kRm9IeJqPfgQ7XpEtNmN3wztp6tBsKnwjD8kU0J0o8A2cIKW35XGgSfBbKFh2PIeMEmAGmfcsmwpSP/DSBTeMeWV9OQ8RJQO2E1Mq8EPQt6HHQH6DLQJ0F/pDryIOg6CXQTaBn0oa+UW3HUaZpzcdQbtP1xnAM6EnQ86DTQNaA3kece0F/jPHEIh+X2mQNyUZb0HpFViQvWlAEjjz3X9sj9MB6bNSXFviykAdHS180fMn7Kavy5YlEG6j3okFTF7N1nv1T5Kp7pUnReW5S4jhuj7NNA24HUKXs0jueBdP2OGs/rUb8/wXUmAbJPBr0I4TeCTgRtD0oaDkaG6yBnFeiroC1xXZkAh/m5mAteiArBFuE7ZfBvQFIWpDnbdJE14YAcI6E475ia85b0Wu+Ixoo+/nwsrtDH3v31Ri5ZESe/dxvpmjUrWaZ6cG+Oan4VVMWwISqlI6xfolO+GufeAuRtAXoIAm8A+fphaVt8DvKWQ/b5OJY6YNiy8Yoe+e8wkCvg8+hutzKFNSBaMfwClgUiZ+p5DWi2Tl0poa6le/qq5wO7SbDhRih6/DD1yKPiM9eP80R0WPtUvNpnoI6PgNqe1oIMXVj3MPDKCjNdG/EV6NFRSaH7TWDQEkKRLow6TnunR55Forc/XuGBGPWH6NAX9a52GJ4sx5dx+qrRKl1dMvXwIxqncb9690s+aokruwJ8XaiDOnWT/EeRpXRhL5R4MTrmbXFMFUbzPoLMmU2LQfZYUL/IgrGLMhxf6pGPYtTxDEYd16K8kVNWYShLkfYcKFEoxY+ze7AxCnkmUc3KyByITl0plbH00nuQThvHL/qUffaNz1xPzp1QbfUd4FDpgBlruQWGYHLSWiKPDnu/h3zqc8Ehl3A49Bb+phajjskrumUxjrcGIuqPMoGzoGdQ9oYR+Y2JwRRfCgOCX8Y7tfCHBLIjGmo2qJQhiUO8Z489ZdLmm5eynjkX+gJ0VjNy1ulS9yYYHh9Hi3H+NOhXoFdBmp7Ud7kb8l0OShrmI8MOoDihD0w/Bn0NpP4MffLqFJx/EfQN0M9AccMnJ0+fHnk3H1dA1nzLRSZLIB8w6oF/ORyW82YMyFHaxxr5LAmTLGmFSsrDH1KoCpewMJO331663h3vPzX10MNKWMOOFHkTaL0SVKTwUBAEHxxHu+N8J9C2oK1Am4M2BOHGV+ai4DeD+kGu8BkYyw+6mMbSwftXOP8zkCvgJly+BSYt214o19mgy0C3gG4EXQo6FbQzePQG7jEcnWHyrFmpp92cwjNmwGhjfu+gbDNrrVyORlJ8UmksjQHR2o36Q27Sc1IHEeg39wVTj9InNt1lm7KvPoJv4LPIN+SoevRH0FkeXsZKolO+G/QJlF0dXrgpxpk9XGRPnpAah1cX3H0EZTgR5JyiAc8y0J7QoqMSHCwhmFSq/rNRk1AWB6HsMWtQTthS5PVGXBtfpQOgbutD2mjb1FnDt1db8/Y/9aQxvXfOAca08QlT9tp7/OW683D1alm7wrrWL/Xd0jol5Ty5GkZkajmLLoJOWe/q54iIdug4NId11+pfcC4OAhaXIMfWIFtQp/Bu0P1fNqaoNOS5FPG6uGkNjlUIz8mQHDtzUHbHjfhPfFWodAYE3ra6rQ/x1dbe5AwsNv/+eg90O9J7DzlMgqnRfWHfQ4sEvY1YPhhxW1Krm/ReVO1CUGkDOuWXUPiTQK7wZRcD0nUtCQ7GMISUv4TOFTimCsh7LzL+A6i8IZSHwiH5C/g53jdzSL7juyKlMyAKAP0hikLnKMQU08AT6jdtLcOkzTaTnl3MfjvNYVu13v/IQ8pCikbgHNx57xCdVI5YdMo/QEmVcDCG/VHPd5lSkaZrPVxrR66HLtyNmKTEi4eMvwdnEuc62IsRcMfRhxHHfrOG5Lu468pk5F5KA6LNg2HYPAmF/hAFQyT37/5HdM1WtNreuR+KThiN7d3P7P/ou/++US4eIhDQxWzXRsSXLUqnh2xlnoxEne7CITK4HOfDyPXPIF9B98fyJatSckprQLQV6A9RFDpDfYseNCrutSwQ1NXqumo9KvPwG2/IwOLHRbq6dPohioVxInNwB35imYHAXf2jKP+vQbYQ7SQbyeHaufMu6HhhhNXLt675cPlu1isKZEd9v4ZPeqk72Yue1hcm27NSGxD6Q7L5cehuvFbJQSB99/xIZCi6n28sEAyif1qN1epdusi6VUP/Y/qIvkiw0UZvS7U/tukEACsvOqqvW2oYp3gceYuS7JoW2iOqoDCeWyJ+F5At/NCWmDQtCAJdP/KAMV9TAn76Fw9Nkvt8EoZU/9akphCX0f/yQhQtXiHoD4mHk2+u8P9/JwNPPhEpVh3kvYdE3yT2HnBgZB6N7H94ZMp60iab2B8DU+bq0lpU7QyQLehim6/YGEqQtsRRRkzhR3LshdgAZAvRP0xbDnfaz90s9eMovQHRJqM/RFHIn6x+EMP27lP2NT+h2XfvPRKGsjTo7TUvNMm/mrlrxB3v/0DpHSBbOBV347p628ZT5DR9IstWPl1AGZW+aVTkuDg1wJgHHRfj59Rl8PxoKZmUShgQxZz+EEUhX7L6QSK2d+96zzTp3r75IaKRMjf8H0ueFNxa6nzzSGR1v1FNY+XG0j4DDttITOcBrwdPWYNrq5M/MFTM9bbA12CA1YgYsqeOTv04cGqNJchYGQNCf0j+v7Y1d98lMjAQqbhnl11btndv+D+Csf5xYjYdzWD0Mdg9KN+emFLPqyAIXkbNXU8r7YpRyDngK2NwGZBJqFvUaMNkWMYwUH/F2LnP4+98CquKrMoYEG0Q+kMUhRypv08GTKvS4SifesTEpy2nzDGvUu+D/yMI5M5p7pXKOVaw46ouRwmeBtnCheho1Sdi4ylimsuAaJk3168mchmQrFaOv9VUDuNlOCwXdg3LQT4JHfWpRoVtJLSbFeVqV0Sx8tMfkm979NnWgzRt7967t3n7dvV/BENSh+krifsJgmAYvPr+iejH3ZCIoHfpV+BYtqB1c5U5arsC11v0dA2JS26a9A1iZwrl51uvlft9Evo18/YPsQvmn7FyBkQhoj9EUciH+hean24cv7179w6zpWtG9K7kDf/HT5eumj4kPl7Uk8X8dxIw43SMseXBiOiLkm50ZPgYRiEHO3iKlmxyko8vp24LP/5az/9PvywUR64luzEpajRkZK5LQiUNCP0h+f1819x7j9EPMnm77aRrJiYWUZzeuebNZPsWLVTn+Xx4R3x0/q4nuKAGBUof1v9nomXYRgvROdyxnwWLayHbNTAiPeArS9g4RkFfi+BxGZA4ciPEOqNcznungCoyuP4Mpa0zuq1l6CnOLG0FylJw+EH6DftiaRUajnOc2Fan6/qPLhFf01euOXD8LKSdj6uT9m5AMArR+Xd9AZKt3PrGuQtsDAVLc40UVqPeUaO5qFHJ+Kq9C4Y0C5/QH49XwvMRBCprQLR6mDecJ6FwvywFI0PSJ6hM4nv3H3Gc90Y81juWp2/Rome3HhRfz9m7DEi7c+QuAxL9WJq090FnegMkLALZwvnoPMvS0WGiwFYVUaMZxeAyIJpH3+ehR5+0q09hVZHVQQOSD4T0h2SPc9+D9xuV6MrzKXvuLcEm0TecQ6+8IoNPPXGdUUDywbjvvQAACnBJREFUBNfTPVOSi5yQw2VAXAZsgrCEF64tzHWzxX9NKLNT7Ds5FL9oSI/jTM6is3+/oTy1jq68AcFtDt8fkvFPvO8u89ZDur37RqeZd+bo//Gjw57XfrgMSPynaaJxi7aE63ld+tdzJjzDKOQXyOLawuTD4NHtznEodHDtZxW5mhwYrEStngfZgn07aFvOiDSM6rZCdBZGCWLLHSpvQLR56A9RFLKl/ofN7/HY8OMnGJUPPvfLp32u/UAH86pR2UjCFHQI7WxEuMWIGOP3b40pfhL+DmJMd+dIagT1hzROTF+djAf++sIYl7Pb/L4AEVuaVm036NA9s/TcB50LIXDT4ZthAgK1MCBaY/pDFIXsyOYHsWkdXPLTa23pKdNcHezclHI1m+tFRquUKSuCgdSV1uYhXVaK/co9zSFOnee2F8MsdOTXZC/vA4Ehwv2nuKYOVV8tqTYGRFuX/hBFIRvqW2heD2LSuPbll4c3v/32b5jS24h3bdQX57WqLerRmej/ZeeWhIkRugXJxBjPVzAiutnif3oWm4s4YLgRFH0MZAv3oY62fcC07r+xCUDaXtD1tzi2G/ThBddoqV0dpc2vf4jSFj5pwb35Q5IqrgF/34MwIIZ9sUzVH1r58vOBiI+1H80qljdHNF3PRedyVFNcnEvdm+XdDkb1UzhYvCTrtIqtk/WiJAMhV0GmGhEcjMHq54Fx0Se0rjfmXp9wEdr56PWXyc6Q98vIYX7/ABLrHmplQLSxMR7l+hAFwjfpepDHH0skNejq1jvJRHliMrs6cf3dfxMdxOyY8gS8O4L3SpAtrEHnpivHbTxe0qBHRzqXeBGWkxBg+HWoOgVkC4tRt3ttDKNpOkXlMqD6VNod0Jt4yg95dGr1olFdPBgQ0D+SIam60fSHZNO2Nkd6lMae3Xf/96h4D3G3xJChjvQfoqP4Gxsv0jcF6Z3oQvCZXnKEpEbQtwk2TvL4QkcbZ7PFPIoSqQO4zQYdDboK9CswxVnYqyMUsBpDIwF11/UgX2hcuL+uhv4FIH2aysoNnrNAOgXq8tOIDA97XzRqLVwBE2tpQLQd6A9RFPxSEj9I+NZbb6IT0E7FbyEgDXL13Q02Jyy4GkE357ocHcabIO1grsDxFNCnQFeC9PlknQ67CNxxtrL4D/DlHVybLWZRnn2BzWMGehbxq0AhFOtb/O7A8WzQNiBXWIC2i72dP3h1RBMX8yOg/BWU6yegr4N00eXHcTwZ9CXQLaC3wfM1EGa78e0Ia1984TkHS+WTa2tA8Avh+hDPP2/dUTd8J+YyiO5uOE08F2CiOB016NM8E2Ojr9Q4aAejfgUdFen8ur5nQ9cTuNZ9jEnUabNbxy7yOqIT1SkzLXNeKlXPZvjaw0D6CHGajQeXQd4nQEmDGlA18nHz6VscdSSkfpb5yKRO8otxVMe+yzcDtnVh3tqVK19fd1XTk9oaEG3vOvpDtN6ZUTgsA4vjLBQWCTbYINPpHnSsuu3H1ZLPR6cyToLOLB4IiFODz4Hpf0FlDfpE1VHAT53jieqAPLq5ojrKXY9uJ5LrYL4Xek928NQiudYGRFuY/hBFwR/1WRYUNmn5ftO190v8yXXqJHM9KPjZ0JXsCQJk8hWgWzvez/uSl7Ocn0HfQaiDa3U52KID8i5Fiu5/Fbl6HWk+gzrXD/MpsMyyam9AtPHoD1EU/JDt/SDjNDyPP71rxfg49rZOj0FuH+8ZgZiWoE8BfRh1uaYlJecIlEF3M9ZRV86a21L3Lyj3ziA1AG0JgoxfQ8B+IMUBB+9hEBLPgp4zQHGnRpFlfKjeOQ0I2pT+EIDgKfTdf5/E8IM86kmdUwz+7AMgXb+h8+tPOjPEY9AORJ232vmpoz1eruy5dMW0rlTPXlN6DWp0dWpxBtpFfU7pJTXlhDxta51amoOk74F8TClqedUntiPka7khlmEMARqQUSToDxkFot2D+kHc60H0kdh2NSXKjz//zSDdg0kd4/r0jk6dJJIBZt3n6js4HgBZx4H0aS9cFiOgPOrIL+LrbfVpu28BpdNB26Cceiev61hw6T9A/kLQn0PyDqAvgu4CqSHAIXbQhzz0QQo1dKdBXu2fuIpCjgZkHCr0h4yAEb69Wl6aEhjpt58/b4TR8P363IMi867oCZYGIx/r9iVg2Q7UHMauDzWojRUNIXeBPg3SLUmmIZM+faNrQS7DuXZyd+OoTzbpUY3FjbjWtMORZ1PQsaC2poqQXztRHCLD4dCXOkDiF0C24NyNGJm/BPIZtoWwE0HXgXT9Rur6JckIXTpVeimOHwLpup9DkF8XFf4jjtrW+qi3tuUPcK1rh3SkcQ7OtwT/gaCrQOpfQlRrmDUoB8wckKCZZg3Jd1u5ix+D+uzZUpcB2d5WchqQJnToD2kCxONlIJLV/LSk+aBzeA10G+gK0Pkg7eTm4rgPSI9qLE7Buabp/lNp1DBPQRBAO+rTU9fieAFI2/pgHPcHHQk6HqQjDTUa6k8pSKmLXQwakKb2oT+kCRBPl2Eog57f++GpZBRDBIiAEwEDAw1IBDD0h0SA0mZUEMidmC96o00xzE4EiECBEKABMTQG/SEGYFJGB0NSqOkr4YcIEIG2EaABsUA4aVD0qZFnLCxMioEApq9WTR+SrNZixChBp1monwhUEwEaEEu70h9iASdBEpzn80E+nslPoJWsRIAIZI0ADYgDYfpDHADFSO4q2NNXMYpMFiJABGIgUAYDEqMa2bLQH5IeX0xfLd16UJYIP0SACFQOARqQmE1Kf0hMoJrYMHVF53kTJrwkAlVBgAYkZkvSHxITqHFsGH1w7cc4PEp5ykITAQsCNCAWcJqT6A9pRsR+zbUfdnyYSgTKjgANSMIWpD8kPmBc+xEfK3ISgTIiQAOSotXi+0NSCK9IFkxfce1HRdqS1SACJgRoQEzIWOLpD7GAM5oE5znXfoxiwQMRqCoCNCApW5b+EDtwXPthx4ep2SNADdkjQAPSBsbqD2neP5/XI+9H4NqPNn5YzEoESoIADUhJGorFJAJEgAgUDQEakKK1SFHKw3IQASJABBwI0IA4AGIyESACRIAIRCNAAxKNC2OJABEgAp1CoDR6aUBK01QsKBEgAkSgWAjQgBSrPVgaIkAEiEBpEPBuQFb0SOiT4iLpU6fKot5oBBQbnxStpTU2ic44vK0aomPiyErCE62lNTaJzDi8rRqiY+LISsITraU1NonMOLytGqJj4shKwhOtpTU2icw4vK0a8onxbkDyKTa1EAEiQASIQKcRoAHpdAtQPxEgAkSgpAi0GpCSVoTFJgJEgAgQgXwRoAHJF29qIwJEgAhUBgEakMo0JStSAQRYBSJQKgS8GxDfmwnGRZN6RzYxTIsDcY5GIC2epnzRWlpjTfnTxrdqiI5JK9+UL1pLa6wpf9r4Vg3RMWnlm/JFa2mNNeVPG9+qIZ8Y7wYkn2JTCxEgAkSACHQagUoZkE6DSf1EgAgQgTohQANSp9ZmXYkAESACHhGgAfEIJkURgfoiwJrXEQEakDq2OutMBIgAEfCAAA2IBxApgggQASJQRwR+DwAA///a/OfXAAAABklEQVQDAOdtHaXkFXHnAAAAAElFTkSuQmCC"/>
+</div>
+<div class="hidden md:flex gap-8 items-center">
+<a class="text-on-surface-variant font-body-md text-body-md hover:text-on-surface transition-colors" href="../index.html">Home</a>
+<a class="text-on-surface-variant font-body-md text-body-md hover:text-on-surface transition-colors" href="drivers.html">Drivers</a>
+<a class="text-on-surface-variant font-body-md text-body-md hover:text-on-surface transition-colors" href="teams.html">Teams</a>
+<a class="text-on-surface-variant font-body-md text-body-md hover:text-on-surface transition-colors" href="circuits.html">Circuits</a>
+<a class="text-primary font-bold border-b-2 border-primary pb-1 font-headline-md text-headline-md" href="#">Calendar</a>
+<a class="text-on-surface-variant font-body-md text-body-md hover:text-on-surface transition-colors" href="standings.html">Standings</a>
+</div>
+<div class="flex items-center gap-4">
+<span class="material-symbols-outlined text-primary-container">search</span>
+<button class="bg-primary-container text-on-primary-container px-4 py-1 font-label-mono text-label-mono font-bold tracking-widest flex items-center gap-2 active:scale-95 transition-transform">
+            </button>
+</div>
+</nav>
+<!-- Main Content -->
+<main class="pt-32 pb-24 max-w-max-width mx-auto px-margin-mobile md:px-margin-desktop relative">
+<!-- Background Decoration -->
+<div class="absolute top-0 right-0 -z-10 opacity-10">
+
+</div>
+<!-- Header Section -->
+<header class="mb-12">
+<div class="flex items-center gap-2 mb-2">
+<div class="h-1 w-12 bg-primary-container"></div>
+<span class="font-label-mono text-label-mono text-primary-container">SEASON 2024</span>
+</div>
+<h1 class="font-headline-xl text-headline-xl uppercase">Race Calendar</h1>
+<p class="text-on-surface-variant max-w-2xl mt-4 font-body-lg text-body-lg">
+                The ultimate 24-race global tour. Follow the technical evolution and human drama across the world's most demanding circuits.
+            </p>
+</header>
+<!-- Calendar List -->
+<div class="flex flex-col gap-4">
+<!-- Entry 1: Finished (Past) -->
+<div class="calendar-row group bg-surface-container border border-outline-variant/20 transition-all duration-300 hover:border-primary-container/40">
+<div class="flex flex-col md:flex-row items-stretch">
+<!-- Date & Status -->
+<div class="md:w-48 p-6 flex flex-col justify-center items-center border-b md:border-b-0 md:border-r border-outline-variant/20 bg-surface-container-low">
+<span class="font-label-mono text-label-mono text-on-surface-variant">ROUND 01</span>
+<div class="font-stat-value text-stat-value text-on-surface mt-1">FEB 29 - MAR 02</div>
+<span class="mt-2 text-[10px] font-bold tracking-[0.2em] text-on-surface-variant/50 uppercase">Completed</span>
+</div>
+<!-- Identity & Main Info -->
+<div class="flex-1 p-6 relative overflow-hidden">
+<div class="flex flex-col md:flex-row justify-between items-start md:items-center">
+<div>
+<h3 class="font-headline-md text-headline-md uppercase group-hover:text-primary-container transition-colors">Gulf Air Bahrain Grand Prix</h3>
+<div class="flex items-center gap-2 mt-1">
+<span class="material-symbols-outlined text-sm text-on-surface-variant">location_on</span>
+<span class="font-label-mono text-label-mono text-on-surface-variant uppercase">Sakhir, Bahrain</span>
+</div>
+</div>
+<div class="mt-4 md:mt-0 flex items-center gap-6">
+<div class="text-right">
+<div class="font-label-mono text-[10px] text-on-surface-variant/60">WINNER</div>
+<div class="font-stat-value text-stat-value text-primary-container uppercase">M. Verstappen</div>
+</div>
+<span class="material-symbols-outlined text-4xl text-outline-variant/30 group-hover:text-primary-container/20 transition-colors">flag</span>
+</div>
+</div>
+<!-- Hover Expansion: Session Times -->
+<div class="hover-reveal">
+<div class="pt-6 border-t border-outline-variant/20 mt-6 grid grid-cols-1 md:grid-cols-3 gap-gutter">
+<div>
+<span class="font-label-mono text-[11px] text-primary-container">FRIDAY</span>
+<div class="flex justify-between mt-2 border-b border-outline-variant/10 pb-2">
+<span class="font-body-md text-body-md">Practice 1</span>
+<span class="font-label-mono text-label-mono">14:30</span>
+</div>
+<div class="flex justify-between mt-2 border-b border-outline-variant/10 pb-2">
+<span class="font-body-md text-body-md">Practice 2</span>
+<span class="font-label-mono text-label-mono">18:00</span>
+</div>
+</div>
+<div>
+<span class="font-label-mono text-[11px] text-primary-container">SATURDAY</span>
+<div class="flex justify-between mt-2 border-b border-outline-variant/10 pb-2">
+<span class="font-body-md text-body-md">Practice 3</span>
+<span class="font-label-mono text-label-mono">15:30</span>
+</div>
+<div class="flex justify-between mt-2 border-b border-outline-variant/10 pb-2">
+<span class="font-body-md text-body-md">Qualifying</span>
+<span class="font-label-mono text-label-mono">19:00</span>
+</div>
+</div>
+<div>
+<span class="font-label-mono text-[11px] text-primary-container">SUNDAY</span>
+<div class="flex justify-between mt-2 border-b border-outline-variant/10 pb-2 bg-primary-container/10 px-2 -mx-2">
+<span class="font-body-md text-body-md font-bold">Race</span>
+<span class="font-label-mono text-label-mono font-bold">18:00</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Entry 2: Next Race (Highlighted) -->
+<div class="calendar-row group bg-surface-container-high border-l-4 border-l-primary-container border-y border-r border-outline-variant/30 shadow-[0_0_40px_-10px_rgba(225,6,0,0.15)]">
+<div class="flex flex-col md:flex-row items-stretch">
+<div class="md:w-48 p-6 flex flex-col justify-center items-center border-b md:border-b-0 md:border-r border-outline-variant/20 bg-primary-container/5">
+<span class="font-label-mono text-label-mono text-primary-container">ROUND 07</span>
+<div class="font-stat-value text-stat-value text-on-surface mt-1">MAY 17 - 19</div>
+<span class="mt-2 text-[10px] font-black tracking-[0.2em] text-primary-container uppercase animate-pulse">Up Next</span>
+</div>
+<div class="flex-1 p-6 relative overflow-hidden">
+<div class="flex flex-col md:flex-row justify-between items-start md:items-center">
+<div>
+<h3 class="font-headline-md text-headline-md uppercase text-on-surface">MSC Cruises Emilia Romagna Grand Prix</h3>
+<div class="flex items-center gap-2 mt-1">
+<span class="material-symbols-outlined text-sm text-on-surface-variant">location_on</span>
+<span class="font-label-mono text-label-mono text-on-surface-variant uppercase">Imola, Italy</span>
+</div>
+</div>
+<div class="mt-4 md:mt-0">
+<button class="bg-on-surface text-background px-6 py-2 font-label-mono text-label-mono font-black uppercase tracking-widest hover:bg-primary-container hover:text-on-primary-container transition-all active:scale-95">Tickets</button>
+</div>
+</div>
+<!-- Hover Expansion: Track Profile -->
+<div class="hover-reveal">
+<div class="pt-6 mt-6 grid grid-cols-1 md:grid-cols-2 gap-gutter border-t border-outline-variant/20">
+<div class="flex gap-4">
+<div class="w-32 h-32 bg-surface-container-lowest border border-outline-variant/30 p-2 flex items-center justify-center">
+<img class="max-w-full max-h-full object-contain" data-alt="A technical blueprint of the Imola circuit track layout, minimalist vector style, white lines on a dark carbon fiber background, professional telemetry aesthetic." src="https://lh3.googleusercontent.com/aida-public/AB6AXuB4xwONZh9RAH0VEBdY1ywtEJ91umM8lXOpUzItHcDFYB130AkHxjkCfyTthNzvwvRfdMTO_C1tDtcwG1LwuK2toIylgcRzWm-KursEqQFA55RDI75hPwQ5-wtOT5bbAoNxvC3TDUPDHgWLa1A8NReoOVghEGPGjDe-DViayfOQ2gp3gNjngx7MRlHe1lpQElOQIWUWbmFHxdbV1VPecaqkYoQiCHL-9xmw1XU866GgCul0s2xLgPGKaY4tYuA571RWvRPCK80ZjXME"/>
+</div>
+<div class="flex-1">
+<span class="font-label-mono text-[10px] text-primary-container">AUTODROMO ENZO E DINO FERRARI</span>
+<p class="text-body-md text-on-surface-variant mt-2">A technical masterpiece. Featuring iconic corners like Rivazza and Tamburello, requiring high-downforce precision and bravery.</p>
+<div class="grid grid-cols-2 gap-4 mt-4">
+<div>
+<div class="text-[10px] font-label-mono text-on-surface-variant/60">LAP RECORD</div>
+<div class="font-label-mono text-on-surface">1:15.484</div>
+</div>
+<div>
+<div class="text-[10px] font-label-mono text-on-surface-variant/60">LAPS</div>
+<div class="font-label-mono text-on-surface">63</div>
+</div>
+</div>
+</div>
+</div>
+<div class="bg-surface-container-lowest p-4 border border-outline-variant/10 flex flex-col justify-between">
+<div>
+<span class="font-label-mono text-[11px] text-primary-container">WEATHER FORECAST</span>
+<div class="flex items-center gap-4 mt-2">
+<span class="material-symbols-outlined text-4xl text-on-surface">partly_cloudy_day</span>
+<div>
+<div class="font-stat-value text-stat-value">22°C</div>
+<div class="text-on-surface-variant font-body-md">Chance of Rain: 15%</div>
+</div>
+</div>
+</div>
+<div class="speed-line"></div>
+<div class="text-center font-label-mono text-[10px] text-on-surface-variant">LOCAL TIME: GMT+2</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Entry 3: Standard Future -->
+<div class="calendar-row group bg-surface-container border border-outline-variant/20 transition-all duration-300 hover:border-primary-container/40">
+<div class="flex flex-col md:flex-row items-stretch">
+<div class="md:w-48 p-6 flex flex-col justify-center items-center border-b md:border-b-0 md:border-r border-outline-variant/20 bg-surface-container-low">
+<span class="font-label-mono text-label-mono text-on-surface-variant">ROUND 08</span>
+<div class="font-stat-value text-stat-value text-on-surface mt-1">MAY 24 - 26</div>
+</div>
+<div class="flex-1 p-6 relative">
+<div class="flex flex-col md:flex-row justify-between items-start md:items-center">
+<div>
+<h3 class="font-headline-md text-headline-md uppercase group-hover:text-primary-container transition-colors">Grand Prix de Monaco</h3>
+<div class="flex items-center gap-2 mt-1">
+<span class="material-symbols-outlined text-sm text-on-surface-variant">location_on</span>
+<span class="font-label-mono text-label-mono text-on-surface-variant uppercase">Monte Carlo, Monaco</span>
+</div>
+</div>
+<div class="mt-4 md:mt-0">
+<span class="material-symbols-outlined text-4xl text-outline-variant/30">diamond</span>
+</div>
+</div>
+<div class="hover-reveal">
+<div class="pt-6 border-t border-outline-variant/20 mt-6">
+<div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+<div>
+<p class="font-body-md text-body-md text-on-surface-variant leading-relaxed">The jewel in the crown. Navigating the narrow streets of the Principality requires total concentration and millimetre precision. Qualifying is everything here.</p>
+</div>
+<div class="flex flex-col gap-2">
+<div class="flex justify-between items-center bg-surface-container-highest/50 p-2 border-l-2 border-primary-container">
+<span class="font-label-mono text-xs uppercase">Strategy Priority</span>
+<span class="font-label-mono text-xs text-primary-container font-bold">MAXIMUM</span>
+</div>
+<div class="flex justify-between items-center bg-surface-container-highest/50 p-2 border-l-2 border-on-surface-variant">
+<span class="font-label-mono text-xs uppercase">Overtaking Difficulty</span>
+<span class="font-label-mono text-xs text-primary-container font-bold">EXTREME</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- More entries simplified for brevity -->
+<div class="calendar-row group bg-surface-container border border-outline-variant/20 opacity-60 hover:opacity-100 transition-all">
+<div class="flex items-center px-6 py-4">
+<div class="w-32 font-label-mono text-label-mono text-on-surface-variant">ROUND 09</div>
+<div class="flex-1 font-headline-md text-[18px] uppercase">AWS Grand Prix du Canada</div>
+<div class="text-right font-label-mono text-label-mono">JUN 07 - 09</div>
+</div>
+</div>
+<div class="calendar-row group bg-surface-container border border-outline-variant/20 opacity-60 hover:opacity-100 transition-all">
+<div class="flex items-center px-6 py-4">
+<div class="w-32 font-label-mono text-label-mono text-on-surface-variant">ROUND 10</div>
+<div class="flex-1 font-headline-md text-[18px] uppercase">Aramco Gran Premio de España</div>
+<div class="text-right font-label-mono text-label-mono">JUN 21 - 23</div>
+</div>
+</div>
+</div>
+<!-- Call to Action -->
+<section class="mt-20 p-12 bg-surface-container-highest border border-outline-variant/20 relative overflow-hidden">
+<div class="relative z-10">
+<h2 class="font-headline-lg text-headline-lg uppercase mb-4">Never Miss a Session</h2>
+<p class="text-on-surface-variant max-w-md mb-8">Sync the full 2024 calendar directly to your device and receive live telemetry notifications during race weekends.</p>
+<div class="flex flex-wrap gap-4">
+<button class="bg-primary-container text-on-primary-container px-8 py-3 font-label-mono text-label-mono font-bold uppercase tracking-widest active:scale-95 transition-transform">Sync Calendar</button>
+<button class="border border-on-surface text-on-surface px-8 py-3 font-label-mono text-label-mono font-bold uppercase tracking-widest hover:bg-on-surface hover:text-background transition-colors active:scale-95">Download PDF</button>
+</div>
+</div>
+<!-- Decorative Element -->
+<div class="absolute -bottom-10 -right-10 opacity-20 transform -rotate-12">
+<span class="material-symbols-outlined text-[200px] text-primary-container">calendar_month</span>
+</div>
+</section>
+</main>
+<!-- Footer -->
+<footer class="bg-surface-container-lowest border-t border-outline-variant/50 mt-24">
+<div class="py-12 px-margin-mobile md:px-margin-desktop max-w-max-width mx-auto flex flex-col md:flex-row justify-between items-start gap-12">
+<div class="space-y-6 max-w-sm">
+<p class="font-body-md text-body-md text-on-secondary-container">
+                    La plataforma definitiva para el análisis técnico y seguimiento en tiempo real de la Fórmula 1. Ingeniería de datos aplicada al deporte motor.
+                </p>
+<div class="flex gap-4">
+<a class="w-10 h-10 flex items-center justify-center border border-outline-variant hover:bg-primary/10 transition-colors" href="#">
+<span class="material-symbols-outlined text-sm">share</span>
+</a>
+<a class="w-10 h-10 flex items-center justify-center border border-outline-variant hover:bg-primary/10 transition-colors" href="#">
+<span class="material-symbols-outlined text-sm">analytics</span>
+</a>
+</div>
+</div>
+<div class="grid grid-cols-2 md:grid-cols-3 gap-12">
+<div>
+<h5 class="font-label-mono text-label-mono text-primary uppercase mb-6">Navigation</h5>
+<ul class="space-y-4 text-on-secondary-container">
+<li><a class="hover:text-primary transition-colors" href="../index.html">Home</a></li>
+<li><a class="hover:text-primary transition-colors" href="drivers.html">Drivers</a></li>
+<li><a class="hover:text-primary transition-colors" href="teams.html">Teams</a></li>
+<li><a class="hover:text-primary transition-colors" href="circuits.html">Circuits</a></li>
+</ul>
+</div>
+<div>
+<h5 class="font-label-mono text-label-mono text-primary uppercase mb-6">Engineering</h5>
+<ul class="space-y-4 text-on-secondary-container">
+<li><a class="hover:text-primary transition-colors" href="#">Telemetry Data</a></li>
+<li><a class="hover:text-primary transition-colors" href="#">Technical Logs</a></li>
+<li><a class="hover:text-primary transition-colors" href="#">API Access</a></li>
+<li><a class="hover:text-primary transition-colors" href="#">Media Kit</a></li>
+</ul>
+</div>
+<div class="col-span-2 md:col-span-1">
+<h5 class="font-label-mono text-label-mono text-primary uppercase mb-6">Legal</h5>
+<ul class="space-y-4 text-on-secondary-container">
+<li><a class="hover:text-primary transition-colors" href="#">Privacy Policy</a></li>
+<li><a class="hover:text-primary transition-colors" href="#">Terms of Service</a></li>
+<li><a class="hover:text-primary transition-colors" href="#">Cookie Settings</a></li>
+</ul>
+</div>
+</div>
+</div>
+<div class="border-t border-outline-variant/20 py-8">
+<div class="px-margin-mobile md:px-margin-desktop max-w-max-width mx-auto flex flex-col md:flex-row justify-between items-center gap-4 text-on-secondary-container text-xs font-label-mono">
+<p>© 2024 Mundo F1. Technical Precision &amp; Engineering Excellence.</p>
+<p>Designed for High Performance Environments.</p>
+</div>
+</div>
+</footer>
+<!-- Micro-interactions Script -->
+<script>
+        // Subtle cursor following atmospheric effect
+        document.addEventListener('mousemove', (e) => {
+            const glow = document.getElementById('cursor-glow');
+            if (glow) {
+                glow.style.transform = `translate(${e.clientX - 250}px, ${e.clientY - 250}px)`;
+            }
+        });
+
+        // Initialize Row Transitions logic
+        document.querySelectorAll('.calendar-row').forEach(row => {
+            row.addEventListener('mouseenter', () => {
+                // Potential for dynamic JS if needed, but CSS handles expansion well
+            });
+        });
+    </script>
+<!-- Floating Background Layer -->
+<div class="fixed top-0 left-0 w-[500px] h-[500px] bg-primary-container/5 rounded-full blur-[100px] pointer-events-none z-[-1] transition-transform duration-300 ease-out" id="cursor-glow"></div>
+</body></html>
