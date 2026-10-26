@@ -1,0 +1,23 @@
+# Node (si en algún momento agregás algo)
+node_modules/
+npm-debug.log
+
+# Sistema operativo
+.DS_Store
+Thumbs.db
+
+# Editor
+.vscode/
+.idea/
+*.swp
+
+# Variables de entorno (por si Bauti comparte algo)
+.env
+.env.local
+
+# Build (si algún día usás algo)
+dist/
+build/
+
+# PDFs temporales (opcional, si no querés versionar el doc de Bauti)
+# para-bauti.pdf

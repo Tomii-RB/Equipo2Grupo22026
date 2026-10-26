@@ -1,0 +1,32 @@
+/* css/standings.css */
+.material-symbols-outlined {
+  font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+}
+.speed-line {
+  height: 1px;
+  background: linear-gradient(90deg, rgba(225,6,0,0) 0%, rgba(225,6,0,0.5) 50%, rgba(225,6,0,0) 100%);
+}
+.custom-scrollbar::-webkit-scrollbar { width: 4px; }
+.custom-scrollbar::-webkit-scrollbar-track { background: #1b1b24; }
+.custom-scrollbar::-webkit-scrollbar-thumb { background: #e10600; }
+
+/* Tabs */
+.tab-btn {
+  position: relative;
+  color: #e9bcb5; /* on-surface-variant */
+  transition: color 0.2s ease;
+}
+.tab-btn:hover { color: #e4e1ee; }
+.tab-btn.active { color: #ffb4a8; /* primary */ font-weight: 700; }
+.tab-btn.active::after {
+  content: "";
+  position: absolute;
+  left: 0; right: 0; bottom: -1px;
+  height: 2px;
+  background: #e10600;
+}
+
+/* Fila líder: highlight sutil */
+.leader-row {
+  background: rgba(225, 6, 0, 0.05);
+}

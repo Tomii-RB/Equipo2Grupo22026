@@ -1,0 +1,92 @@
+/* css/common.css */
+
+/* --- Dropdown de búsqueda --- */
+.search-wrap {
+  position: relative;
+}
+.search-input {
+  background: #1f1f28; /* surface-container */
+  border: 1px solid rgba(94, 63, 58, 0.5); /* outline-variant/50 */
+  color: #000000;
+  padding: 6px 12px;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 13px;
+  width: 220px;
+  outline: none;
+  transition: border-color 0.2s ease;
+}
+.search-input:focus {
+  border-color: #e10600;
+}
+.search-input::placeholder {
+  color: #000000;
+  opacity: 0.6;
+}
+.search-results {
+  position: absolute;
+  top: calc(100% + 6px);
+  right: 0;
+  width: 320px;
+  max-height: 400px;
+  overflow-y: auto;
+  background: #292933; /* surface-container-high */
+  border: 1px solid rgba(94, 63, 58, 0.5);
+  z-index: 100;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+}
+.search-results:empty {
+  display: none;
+}
+.search-result-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 14px;
+  color: #e4e1ee;
+  text-decoration: none;
+  border-bottom: 1px solid rgba(94, 63, 58, 0.2);
+  transition: background 0.15s ease;
+}
+.search-result-item:last-child {
+  border-bottom: none;
+}
+.search-result-item:hover {
+  background: #34343e; /* surface-variant */
+}
+.search-result-type {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 9px;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: #ffb4a8;
+  padding: 2px 6px;
+  border: 1px solid rgba(255, 180, 168, 0.3);
+  flex-shrink: 0;
+}
+.search-result-label {
+  font-family: 'Hanken Grotesk', sans-serif;
+  font-size: 14px;
+}
+.search-empty {
+  padding: 14px;
+  text-align: center;
+  color: #e9bcb5;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 12px;
+}
+
+/* --- Menú mobile --- */
+@media (max-width: 767px) {
+  .search-input {
+    width: 140px;
+  }
+  .search-results {
+    width: calc(100vw - 32px);
+    right: -8px;
+  }
+}
+
+/* Scrollbar del dropdown */
+.search-results::-webkit-scrollbar { width: 4px; }
+.search-results::-webkit-scrollbar-track { background: #1b1b24; }
+.search-results::-webkit-scrollbar-thumb { background: #e10600; }

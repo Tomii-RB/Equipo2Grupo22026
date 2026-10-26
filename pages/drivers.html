@@ -1,489 +1,176 @@
 <!DOCTYPE html>
-
-<html class="dark" lang="en"><head>
+<html class="dark" lang="en">
+<head>
 <meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
 <title>Drivers | MUNDO F1</title>
+
 <!-- Fonts -->
-<link href="https://fonts.googleapis.com/css2?family=Chivo:ital,wght@0,400;0,700;0,800;0,900;1,900&amp;family=Hanken+Grotesk:wght@400;500;700&amp;family=JetBrains+Mono:wght@500;700&amp;display=swap" rel="stylesheet"/>
-<!-- Material Icons -->
-<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
-<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
-<!-- Tailwind -->
+<link href="https://fonts.googleapis.com/css2?family=Chivo:ital,wght@0,400;0,700;0,800;0,900;1,900&family=Hanken+Grotesk:wght@400;500;700&family=JetBrains+Mono:wght@500;700&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+
+<!-- Tailwind + config -->
 <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
-<script id="tailwind-config">
-      tailwind.config = {
-        darkMode: "class",
-        theme: {
-          extend: {
-            "colors": {
-                    "outline": "#af8781",
-                    "on-surface": "#e4e1ee",
-                    "on-error": "#690005",
-                    "tertiary-fixed": "#e2e2e2",
-                    "secondary-container": "#494851",
-                    "primary": "#ffb4a8",
-                    "surface-tint": "#ffb4a8",
-                    "primary-fixed-dim": "#ffb4a8",
-                    "outline-variant": "#5e3f3a",
-                    "on-primary-fixed": "#410100",
-                    "error": "#ffb4ab",
-                    "surface-container-lowest": "#0d0d16",
-                    "primary-fixed": "#ffdad4",
-                    "inverse-surface": "#e4e1ee",
-                    "tertiary-fixed-dim": "#c6c6c7",
-                    "on-surface-variant": "#e9bcb5",
-                    "surface-container-highest": "#34343e",
-                    "on-tertiary-fixed-variant": "#454747",
-                    "background": "#13131b",
-                    "secondary-fixed": "#e4e1ec",
-                    "on-secondary-container": "#b9b7c1",
-                    "on-primary": "#680200",
-                    "on-secondary-fixed-variant": "#46464e",
-                    "on-error-container": "#ffdad6",
-                    "surface-bright": "#393842",
-                    "surface-dim": "#13131b",
-                    "surface-variant": "#34343e",
-                    "inverse-on-surface": "#302f39",
-                    "primary-container": "#e10600",
-                    "on-secondary-fixed": "#1b1b22",
-                    "on-primary-fixed-variant": "#930300",
-                    "surface-container-low": "#1b1b24",
-                    "surface": "#13131b",
-                    "secondary": "#c7c5d0",
-                    "tertiary-container": "#6f7070",
-                    "on-background": "#e4e1ee",
-                    "surface-container": "#1f1f28",
-                    "surface-container-high": "#292933",
-                    "secondary-fixed-dim": "#c7c5d0",
-                    "inverse-primary": "#c00500",
-                    "error-container": "#93000a",
-                    "on-tertiary-container": "#f5f5f5",
-                    "on-tertiary-fixed": "#1a1c1c",
-                    "on-tertiary": "#2f3131",
-                    "tertiary": "#c6c6c7",
-                    "on-secondary": "#303038",
-                    "on-primary-container": "#fff2f0"
-            },
-            "borderRadius": {
-                    "DEFAULT": "0px",
-                    "lg": "0px",
-                    "xl": "0px",
-                    "full": "9999px"
-            },
-            "spacing": {
-                    "unit": "4px",
-                    "gutter": "24px",
-                    "margin-desktop": "48px",
-                    "margin-mobile": "16px",
-                    "max-width": "1440px"
-            },
-            "fontFamily": {
-                    "headline-xl": ["Chivo"],
-                    "headline-lg-mobile": ["Chivo"],
-                    "headline-lg": ["Chivo"],
-                    "label-mono": ["JetBrains Mono"],
-                    "headline-md": ["Chivo"],
-                    "stat-value": ["Chivo"],
-                    "body-md": ["Hanken Grotesk"],
-                    "body-lg": ["Hanken Grotesk"]
-            },
-            "fontSize": {
-                    "headline-xl": ["48px", {"lineHeight": "1.1", "letterSpacing": "-0.02em", "fontWeight": "900"}],
-                    "headline-lg-mobile": ["28px", {"lineHeight": "1.2", "fontWeight": "800"}],
-                    "headline-lg": ["32px", {"lineHeight": "1.2", "letterSpacing": "-0.01em", "fontWeight": "800"}],
-                    "label-mono": ["14px", {"lineHeight": "1.0", "letterSpacing": "0.05em", "fontWeight": "500"}],
-                    "headline-md": ["24px", {"lineHeight": "1.3", "fontWeight": "700"}],
-                    "stat-value": ["20px", {"lineHeight": "1.0", "fontWeight": "900"}],
-                    "body-md": ["16px", {"lineHeight": "1.5", "fontWeight": "400"}],
-                    "body-lg": ["18px", {"lineHeight": "1.6", "fontWeight": "400"}]
-            }
-          },
-        },
-      }
-    </script>
-<style>
-        body {
-            background-color: #13131b;
-            color: #e4e1ee;
-            font-family: 'Hanken Grotesk', sans-serif;
-        }
+<script src="../js/tailwind-config.js"></script>
 
-        .material-symbols-outlined {
-            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
-        }
+<link rel="stylesheet" href="../css/common.css">  <!-- en /pages/ -->
 
-        /* Speed line effect */
-        .speed-line {
-            height: 1px;
-            background: linear-gradient(90deg, rgba(225,6,0,0) 0%, rgba(225,6,0,0.5) 50%, rgba(225,6,0,0) 100%);
-        }
-
-        /* Custom Scrollbar for High Density Tables */
-        .custom-scrollbar::-webkit-scrollbar {
-            width: 4px;
-        }
-        .custom-scrollbar::-webkit-scrollbar-track {
-            background: #1b1b24;
-        }
-        .custom-scrollbar::-webkit-scrollbar-thumb {
-            background: #e10600;
-        }
-
-        /* Driver Card Hover Reveal */
-        .driver-card .reveal-content {
-            max-height: 0;
-            opacity: 0;
-            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-        }
-        .driver-card:hover .reveal-content {
-            max-height: 200px;
-            opacity: 1;
-            margin-top: 1rem;
-        }
-        .driver-card:hover {
-            box-shadow: 0 0 20px rgba(225, 6, 0, 0.2);
-            border-color: rgba(225, 6, 0, 0.5);
-        }
-    </style>
+<!-- Estilos propios -->
+<link rel="stylesheet" href="../css/drivers.css">
 </head>
 <body class="bg-background selection:bg-primary-container selection:text-on-primary-container">
+
 <!-- TopNavBar -->
 <nav class="fixed top-0 w-full z-50 bg-surface/60 backdrop-blur-md border-b border-outline-variant/50">
-<div class="flex justify-between items-center px-margin-mobile md:px-margin-desktop max-w-max-width mx-auto h-20">
-<div class="flex items-center gap-4">
-<img alt="Mundo F1" class="h-8 md:h-10" src="data:image/png;base64,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"/>
-</div>
-<div class="hidden md:flex gap-8 items-center">
-<a class="text-on-surface-variant font-body-md text-body-md hover:text-on-surface transition-colors" href="../index.html">Home</a>
-<a class="text-primary font-bold border-b-2 border-primary pb-1 font-headline-md text-headline-md" href="#">Drivers</a>
-<a class="text-on-surface-variant font-body-md text-body-md hover:text-on-surface transition-colors" href="teams.html">Teams</a>
-<a class="text-on-surface-variant font-body-md text-body-md hover:text-on-surface transition-colors" href="circuits.html">Circuits</a>
-<a class="text-on-surface-variant font-body-md text-body-md hover:text-on-surface transition-colors" href="calendar.html">Calendar</a>
-<a class="text-on-surface-variant font-body-md text-body-md hover:text-on-surface transition-colors" href="standings.html">Standings</a>
-</div>
-<div class="flex items-center gap-4">
-<button class="p-2 hover:bg-primary/10 transition-all duration-200 active:scale-95">
-<span class="material-symbols-outlined text-primary">search</span>
-</button>
-<button class="md:hidden p-2">
-<span class="material-symbols-outlined">menu</span>
-</button>
-</div>
-</div>
+  <div class="flex justify-between items-center px-margin-mobile md:px-margin-desktop max-w-max-width mx-auto h-20">
+    <div class="flex items-center gap-4">
+      <a href="../index.html"><img alt="Mundo F1" class="h-8 md:h-10" src="../images/logo.png"/></a>
+    </div>
+    <div class="hidden md:flex gap-8 items-center">
+      <a class="text-on-surface-variant font-body-md text-body-md hover:text-on-surface transition-colors" href="../index.html">Home</a>
+      <a class="text-primary font-bold border-b-2 border-primary pb-1 font-headline-md text-headline-md" href="#">Drivers</a>
+      <a class="text-on-surface-variant font-body-md text-body-md hover:text-on-surface transition-colors" href="teams.html">Teams</a>
+      <a class="text-on-surface-variant font-body-md text-body-md hover:text-on-surface transition-colors" href="circuits.html">Circuits</a>
+      <a class="text-on-surface-variant font-body-md text-body-md hover:text-on-surface transition-colors" href="calendar.html">Calendar</a>
+      <a class="text-on-surface-variant font-body-md text-body-md hover:text-on-surface transition-colors" href="standings.html">Standings</a>
+    </div>
+    <div class="flex items-center gap-4">
+        <div class="search-wrap hidden md:block">
+            <input type="text" id="search-input" class="search-input" placeholder="Buscar piloto, equipo..." autocomplete="off">
+            <div id="search-results" class="search-results"></div>
+        </div>
+        <button id="mobile-menu-btn" class="md:hidden p-2">
+            <span class="material-symbols-outlined">menu</span>
+        </button>
+    </div>
+  </div>
+  <!-- Menú móvil -->
+  <div id="mobile-menu" class="hidden md:hidden bg-surface-container border-t border-outline-variant/50">
+    <a class="block px-4 py-3 text-on-surface-variant" href="../index.html">Home</a>
+    <a class="block px-4 py-3 text-primary font-bold" href="#">Drivers</a>
+    <a class="block px-4 py-3 text-on-surface-variant" href="teams.html">Teams</a>
+    <a class="block px-4 py-3 text-on-surface-variant" href="circuits.html">Circuits</a>
+    <a class="block px-4 py-3 text-on-surface-variant" href="calendar.html">Calendar</a>
+    <a class="block px-4 py-3 text-on-surface-variant" href="standings.html">Standings</a>
+  </div>
 </nav>
+
 <main class="pt-24 pb-20 px-margin-mobile md:px-margin-desktop max-w-max-width mx-auto">
-<!-- Header Section -->
-<header class="mb-12">
-<div class="flex items-baseline gap-4 mb-2">
-<h1 class="font-headline-xl text-headline-xl uppercase">Pilotos</h1>
-<span class="font-label-mono text-label-mono text-primary-container tracking-widest uppercase">Season 2026</span>
-</div>
-<div class="speed-line w-full"></div>
-</header>
-<div class="grid grid-cols-1 lg:grid-cols-12 gap-gutter">
-<!-- Main Content: Driver Grid (8 Columns) -->
-<div class="lg:col-span-8">
-<div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-<!-- Driver Card 1 -->
-<div class="driver-card group relative bg-surface-container border border-outline-variant/30 transition-all duration-300 overflow-hidden cursor-pointer">
-<div class="absolute top-0 left-0 w-1 h-full bg-primary-container"></div>
-<div class="relative h-80 w-full overflow-hidden">
-<img class="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-500 transform group-hover:scale-105"/>
-<div class="absolute inset-0 bg-gradient-to-t from-background via-transparent to-transparent opacity-80"></div>
-<div class="absolute bottom-4 left-6">
-<span class="font-label-mono text-label-mono text-primary-container">01</span>
-<h3 class="font-headline-md text-headline-md uppercase leading-none">Max Verstappen</h3>
-<p class="font-label-mono text-label-mono text-on-surface-variant opacity-70">Red Bull Racing</p>
-</div>
-</div>
-<div class="p-6 reveal-content">
-<p class="font-body-md text-body-md text-on-surface-variant italic">
-                                Three-time World Champion from the Netherlands. Driving for Red Bull Racing, known for his clinical precision and unmatched speed on any circuit.
-                            </p>
-<div class="mt-4 flex gap-4">
-<div class="bg-surface-container-highest p-3 border border-outline-variant/20 flex-1">
-<span class="block font-label-mono text-[10px] text-on-surface-variant uppercase">Wins</span>
-<span class="font-stat-value text-stat-value text-primary-container">54</span>
-</div>
-<div class="bg-surface-container-highest p-3 border border-outline-variant/20 flex-1">
-<span class="block font-label-mono text-[10px] text-on-surface-variant uppercase">Podiums</span>
-<span class="font-stat-value text-stat-value">98</span>
-</div>
-</div>
-</div>
-</div>
-<!-- Driver Card 2 -->
-<div class="driver-card group relative bg-surface-container border border-outline-variant/30 transition-all duration-300 overflow-hidden cursor-pointer">
-<div class="absolute top-0 left-0 w-1 h-full bg-primary-container"></div>
-<div class="relative h-80 w-full overflow-hidden">
-<img class="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-500 transform group-hover:scale-105"/>
-<div class="absolute inset-0 bg-gradient-to-t from-background via-transparent to-transparent opacity-80"></div>
-<div class="absolute bottom-4 left-6">
-<span class="font-label-mono text-label-mono text-primary-container">44</span>
-<h3 class="font-headline-md text-headline-md uppercase leading-none">Lewis Hamilton</h3>
-<p class="font-label-mono text-label-mono text-on-surface-variant opacity-70">Mercedes-AMG</p>
-</div>
-</div>
-<div class="p-6 reveal-content">
-<p class="font-body-md text-body-md text-on-surface-variant italic">
-                                Seven-time World Champion. A legend of the sport aiming for his eighth title. Renowned for his race craft and advocacy beyond the track.
-                            </p>
-<div class="mt-4 flex gap-4">
-<div class="bg-surface-container-highest p-3 border border-outline-variant/20 flex-1">
-<span class="block font-label-mono text-[10px] text-on-surface-variant uppercase">Wins</span>
-<span class="font-stat-value text-stat-value text-primary-container">103</span>
-</div>
-<div class="bg-surface-container-highest p-3 border border-outline-variant/20 flex-1">
-<span class="block font-label-mono text-[10px] text-on-surface-variant uppercase">Podiums</span>
-<span class="font-stat-value text-stat-value">197</span>
-</div>
-</div>
-</div>
-</div>
-<!-- Driver Card 3 -->
-<div class="driver-card group relative bg-surface-container border border-outline-variant/30 transition-all duration-300 overflow-hidden cursor-pointer">
-<div class="absolute top-0 left-0 w-1 h-full bg-primary-container"></div>
-<div class="relative h-80 w-full overflow-hidden">
-<img class="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-500 transform group-hover:scale-105" />
-<div class="absolute inset-0 bg-gradient-to-t from-background via-transparent to-transparent opacity-80"></div>
-<div class="absolute bottom-4 left-6">
-<span class="font-label-mono text-label-mono text-primary-container">16</span>
-<h3 class="font-headline-md text-headline-md uppercase leading-none">Charles Leclerc</h3>
-<p class="font-label-mono text-label-mono text-on-surface-variant opacity-70">Scuderia Ferrari</p>
-</div>
-</div>
-<div class="p-6 reveal-content">
-<p class="font-body-md text-body-md text-on-surface-variant italic">
-                                The Prince of Monaco and Ferrari's golden boy. A qualifying specialist with incredible raw speed and a deep passion for the Prancing Horse.
-                            </p>
-<div class="mt-4 flex gap-4">
-<div class="bg-surface-container-highest p-3 border border-outline-variant/20 flex-1">
-<span class="block font-label-mono text-[10px] text-on-surface-variant uppercase">Wins</span>
-<span class="font-stat-value text-stat-value text-primary-container">5</span>
-</div>
-<div class="bg-surface-container-highest p-3 border border-outline-variant/20 flex-1">
-<span class="block font-label-mono text-[10px] text-on-surface-variant uppercase">Podiums</span>
-<span class="font-stat-value text-stat-value">30</span>
-</div>
-</div>
-</div>
-</div>
-<!-- Driver Card 4 -->
-<div class="driver-card group relative bg-surface-container border border-outline-variant/30 transition-all duration-300 overflow-hidden cursor-pointer">
-<div class="absolute top-0 left-0 w-1 h-full bg-primary-container"></div>
-<div class="relative h-80 w-full overflow-hidden">
-<img class="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-500 transform group-hover:scale-105" />
-<div class="absolute inset-0 bg-gradient-to-t from-background via-transparent to-transparent opacity-80"></div>
-<div class="absolute bottom-4 left-6">
-<span class="font-label-mono text-label-mono text-primary-container">04</span>
-<h3 class="font-headline-md text-headline-md uppercase leading-none">Lando Norris</h3>
-<p class="font-label-mono text-label-mono text-on-surface-variant opacity-70">McLaren F1</p>
-</div>
-</div>
-<div class="p-6 reveal-content">
-<p class="font-body-md text-body-md text-on-surface-variant italic">
-                                The face of McLaren's resurgence. A talented British driver known for his consistency, humor, and rapidly evolving race management skills.
-                            </p>
-<div class="mt-4 flex gap-4">
-<div class="bg-surface-container-highest p-3 border border-outline-variant/20 flex-1">
-<span class="block font-label-mono text-[10px] text-on-surface-variant uppercase">Wins</span>
-<span class="font-stat-value text-stat-value text-primary-container">1</span>
-</div>
-<div class="bg-surface-container-highest p-3 border border-outline-variant/20 flex-1">
-<span class="block font-label-mono text-[10px] text-on-surface-variant uppercase">Podiums</span>
-<span class="font-stat-value text-stat-value">13</span>
-</div>
-</div>
-</div>
-</div>
-</div>
-</div>
-<!-- Sidebar: Standings (4 Columns) -->
-<aside class="lg:col-span-4 space-y-gutter">
-<div class="bg-surface-container p-6 border border-outline-variant/30">
-<div class="flex justify-between items-center mb-6">
-<h2 class="font-headline-md text-headline-md uppercase flex items-center gap-2">
-<span class="material-symbols-outlined text-primary-container" style="font-variation-settings: 'FILL' 1;">leaderboard</span>
-                            Standings
-                        </h2>
-<span class="font-label-mono text-[12px] text-on-surface-variant px-2 py-1 bg-surface-container-highest">ROUND 12/24</span>
-</div>
-<div class="overflow-x-auto custom-scrollbar">
-<table class="w-full text-left border-collapse">
-<thead>
-<tr class="border-b border-outline-variant/30">
-<th class="py-3 font-label-mono text-label-mono text-on-surface-variant uppercase">Pos</th>
-<th class="py-3 font-label-mono text-label-mono text-on-surface-variant uppercase">Piloto</th>
-<th class="py-3 font-label-mono text-label-mono text-on-surface-variant uppercase text-right">Pts</th>
-</tr>
-</thead>
-<tbody class="font-label-mono">
-<tr class="border-b border-outline-variant/10 hover:bg-white/5 transition-colors group">
-<td class="py-4 text-primary-container font-bold italic">01</td>
-<td class="py-4">
-<div class="flex flex-col">
-<span class="text-on-surface font-bold uppercase">Max Verstappen</span>
-<span class="text-[10px] text-on-surface-variant uppercase opacity-60">Red Bull</span>
-</div>
-</td>
-<td class="py-4 text-right font-bold text-on-surface group-hover:text-primary-container">255</td>
-</tr>
-<tr class="border-b border-outline-variant/10 hover:bg-white/5 transition-colors group">
-<td class="py-4 text-on-surface-variant">02</td>
-<td class="py-4">
-<div class="flex flex-col">
-<span class="text-on-surface font-bold uppercase">Lando Norris</span>
-<span class="text-[10px] text-on-surface-variant uppercase opacity-60">McLaren</span>
-</div>
-</td>
-<td class="py-4 text-right font-bold text-on-surface group-hover:text-primary-container">171</td>
-</tr>
-<tr class="border-b border-outline-variant/10 hover:bg-white/5 transition-colors group">
-<td class="py-4 text-on-surface-variant">03</td>
-<td class="py-4">
-<div class="flex flex-col">
-<span class="text-on-surface font-bold uppercase">Charles Leclerc</span>
-<span class="text-[10px] text-on-surface-variant uppercase opacity-60">Ferrari</span>
-</div>
-</td>
-<td class="py-4 text-right font-bold text-on-surface group-hover:text-primary-container">150</td>
-</tr>
-<tr class="border-b border-outline-variant/10 hover:bg-white/5 transition-colors group">
-<td class="py-4 text-on-surface-variant">04</td>
-<td class="py-4">
-<div class="flex flex-col">
-<span class="text-on-surface font-bold uppercase">Carlos Sainz</span>
-<span class="text-[10px] text-on-surface-variant uppercase opacity-60">Ferrari</span>
-</div>
-</td>
-<td class="py-4 text-right font-bold text-on-surface group-hover:text-primary-container">146</td>
-</tr>
-<tr class="border-b border-outline-variant/10 hover:bg-white/5 transition-colors group">
-<td class="py-4 text-on-surface-variant">05</td>
-<td class="py-4">
-<div class="flex flex-col">
-<span class="text-on-surface font-bold uppercase">Oscar Piastri</span>
-<span class="text-[10px] text-on-surface-variant uppercase opacity-60">McLaren</span>
-</div>
-</td>
-<td class="py-4 text-right font-bold text-on-surface group-hover:text-primary-container">124</td>
-</tr>
-<tr class="border-b border-outline-variant/10 hover:bg-white/5 transition-colors group">
-<td class="py-4 text-on-surface-variant">06</td>
-<td class="py-4">
-<div class="flex flex-col">
-<span class="text-on-surface font-bold uppercase">Lewis Hamilton</span>
-<span class="text-[10px] text-on-surface-variant uppercase opacity-60">Mercedes</span>
-</div>
-</td>
-<td class="py-4 text-right font-bold text-on-surface group-hover:text-primary-container">110</td>
-</tr>
-<tr class="border-b border-outline-variant/10 hover:bg-white/5 transition-colors group">
-<td class="py-4 text-on-surface-variant">07</td>
-<td class="py-4">
-<div class="flex flex-col">
-<span class="text-on-surface font-bold uppercase">Sergio Perez</span>
-<span class="text-[10px] text-on-surface-variant uppercase opacity-60">Red Bull</span>
-</div>
-</td>
-<td class="py-4 text-right font-bold text-on-surface group-hover:text-primary-container">108</td>
-</tr>
-<tr class="hover:bg-white/5 transition-colors group">
-<td class="py-4 text-on-surface-variant">08</td>
-<td class="py-4">
-<div class="flex flex-col">
-<span class="text-on-surface font-bold uppercase">George Russell</span>
-<span class="text-[10px] text-on-surface-variant uppercase opacity-60">Mercedes</span>
-</div>
-</td>
-<td class="py-4 text-right font-bold text-on-surface group-hover:text-primary-container">101</td>
-</tr>
-</tbody>
-</table>
-</div>
-<button class="w-full mt-8 py-3 bg-transparent border border-on-surface-variant hover:bg-primary-container hover:border-primary-container hover:text-on-primary-container transition-all duration-300 font-headline-md text-[14px] uppercase tracking-widest flex items-center justify-center gap-2 group">
-                        Full Standings Table
-                        <span class="material-symbols-outlined transition-transform group-hover:translate-x-1">trending_flat</span>
-</button>
-</div>
-<!-- Technical Teaser -->
-<div class="bg-surface-container-low p-6 border-l-4 border-primary-container relative overflow-hidden group">
-<div class="absolute -right-4 -bottom-4 text-primary-container opacity-5 transform rotate-12 transition-transform group-hover:scale-110 duration-700">
-<span class="material-symbols-outlined text-[120px]">precision_manufacturing</span>
-</div>
-<h4 class="font-headline-md text-headline-md uppercase mb-2 relative z-10">Telemetry Lab</h4>
-<p class="font-body-md text-body-md text-on-surface-variant relative z-10">Access real-time G-force and braking telemetry from every car on the grid.</p>
-<a class="inline-block mt-4 text-primary-container font-label-mono text-label-mono uppercase hover:underline relative z-10" href="#">Explore Data →</a>
-</div>
-</aside>
-</div>
+
+  <!-- Header Section -->
+  <header class="mb-12">
+    <div class="flex items-baseline gap-4 mb-2">
+      <h1 class="font-headline-xl text-headline-xl uppercase">Pilotos</h1>
+      <span id="season-label" class="font-label-mono text-label-mono text-primary-container tracking-widest uppercase">Season —</span>
+    </div>
+    <div class="speed-line w-full"></div>
+  </header>
+
+  <div class="grid grid-cols-1 lg:grid-cols-12 gap-gutter">
+
+    <!-- Main Content: Driver Grid (8 Columns) -->
+    <div class="lg:col-span-8">
+      <div id="drivers-grid" class="grid grid-cols-1 md:grid-cols-2 gap-6">
+        <!-- Las tarjetas las inserta js/drivers.js -->
+      </div>
+    </div>
+
+    <!-- Sidebar: Standings (4 Columns) -->
+    <aside class="lg:col-span-4 space-y-gutter">
+      <div class="bg-surface-container p-6 border border-outline-variant/30">
+        <div class="flex justify-between items-center mb-6">
+          <h2 class="font-headline-md text-headline-md uppercase flex items-center gap-2">
+            <span class="material-symbols-outlined text-primary-container" style="font-variation-settings: 'FILL' 1;">leaderboard</span>
+            Standings
+          </h2>
+          <span id="round-label" class="font-label-mono text-[12px] text-on-surface-variant px-2 py-1 bg-surface-container-highest">ROUND —/—</span>
+        </div>
+        <div class="overflow-x-auto custom-scrollbar">
+          <table class="w-full text-left border-collapse">
+            <thead>
+              <tr class="border-b border-outline-variant/30">
+                <th class="py-3 font-label-mono text-label-mono text-on-surface-variant uppercase">Pos</th>
+                <th class="py-3 font-label-mono text-label-mono text-on-surface-variant uppercase">Piloto</th>
+                <th class="py-3 font-label-mono text-label-mono text-on-surface-variant uppercase text-right">Pts</th>
+              </tr>
+            </thead>
+            <tbody id="driver-standings-body" class="font-label-mono">
+              <!-- js/drivers.js -->
+            </tbody>
+          </table>
+        </div>
+        <a href="standings.html" class="block text-center w-full mt-8 py-3 bg-transparent border border-on-surface-variant hover:bg-primary-container hover:border-primary-container hover:text-on-primary-container transition-all duration-300 font-headline-md text-[14px] uppercase tracking-widest flex items-center justify-center gap-2 group">
+          Full Standings Table
+          <span class="material-symbols-outlined transition-transform group-hover:translate-x-1">trending_flat</span>
+        </a>
+      </div>
+
+      <!-- Technical Teaser (sin cambios) -->
+      <div class="bg-surface-container-low p-6 border-l-4 border-primary-container relative overflow-hidden group">
+        <div class="absolute -right-4 -bottom-4 text-primary-container opacity-5 transform rotate-12 transition-transform group-hover:scale-110 duration-700">
+          <span class="material-symbols-outlined text-[120px]">precision_manufacturing</span>
+        </div>
+        <h4 class="font-headline-md text-headline-md uppercase mb-2 relative z-10">Telemetry Lab</h4>
+        <p class="font-body-md text-body-md text-on-surface-variant relative z-10">Access real-time G-force and braking telemetry from every car on the grid.</p>
+        <a class="inline-block mt-4 text-primary-container font-label-mono text-label-mono uppercase hover:underline relative z-10" href="#">Explore Data →</a>
+      </div>
+    </aside>
+  </div>
 </main>
+
 <!-- Footer -->
 <footer class="bg-surface-container-lowest border-t border-outline-variant/50 mt-24">
-<div class="py-12 px-margin-mobile md:px-margin-desktop max-w-max-width mx-auto flex flex-col md:flex-row justify-between items-start gap-12">
-<div class="space-y-6 max-w-sm">
-<p class="font-body-md text-body-md text-on-secondary-container">
-                    La plataforma definitiva para el análisis técnico y seguimiento en tiempo real de la Fórmula 1. Ingeniería de datos aplicada al deporte motor.
-                </p>
-<div class="flex gap-4">
-<a class="w-10 h-10 flex items-center justify-center border border-outline-variant hover:bg-primary/10 transition-colors" href="#">
-<span class="material-symbols-outlined text-sm">share</span>
-</a>
-<a class="w-10 h-10 flex items-center justify-center border border-outline-variant hover:bg-primary/10 transition-colors" href="#">
-<span class="material-symbols-outlined text-sm">analytics</span>
-</a>
-</div>
-</div>
-<div class="grid grid-cols-2 md:grid-cols-3 gap-12">
-<div>
-<h5 class="font-label-mono text-label-mono text-primary uppercase mb-6">Navigation</h5>
-<ul class="space-y-4 text-on-secondary-container">
-<li><a class="hover:text-primary transition-colors" href="../index.html">Home</a></li>
-<li><a class="hover:text-primary transition-colors" href="calendar.html">Calendar</a></li>
-<li><a class="hover:text-primary transition-colors" href="teams.html">Teams</a></li>
-<li><a class="hover:text-primary transition-colors" href="circuits.html">Circuits</a></li>
-</ul>
-</div>
-<div>
-<h5 class="font-label-mono text-label-mono text-primary uppercase mb-6">Engineering</h5>
-<ul class="space-y-4 text-on-secondary-container">
-<li><a class="hover:text-primary transition-colors" href="#">Telemetry Data</a></li>
-<li><a class="hover:text-primary transition-colors" href="#">Technical Logs</a></li>
-<li><a class="hover:text-primary transition-colors" href="#">API Access</a></li>
-<li><a class="hover:text-primary transition-colors" href="#">Media Kit</a></li>
-</ul>
-</div>
-<div class="col-span-2 md:col-span-1">
-<h5 class="font-label-mono text-label-mono text-primary uppercase mb-6">Legal</h5>
-<ul class="space-y-4 text-on-secondary-container">
-<li><a class="hover:text-primary transition-colors" href="#">Privacy Policy</a></li>
-<li><a class="hover:text-primary transition-colors" href="#">Terms of Service</a></li>
-<li><a class="hover:text-primary transition-colors" href="#">Cookie Settings</a></li>
-</ul>
-</div>
-</div>
-</div>
-<div class="border-t border-outline-variant/20 py-8">
-<div class="px-margin-mobile md:px-margin-desktop max-w-max-width mx-auto flex flex-col md:flex-row justify-between items-center gap-4 text-on-secondary-container text-xs font-label-mono">
-<p>© 2024 Mundo F1. Technical Precision &amp; Engineering Excellence.</p>
-<p>Designed for High Performance Environments.</p>
-</div>
-</div>
+  <div class="py-12 px-margin-mobile md:px-margin-desktop max-w-max-width mx-auto flex flex-col md:flex-row justify-between items-start gap-12">
+    <div class="space-y-6 max-w-sm">
+      <p class="font-body-md text-body-md text-on-secondary-container">
+        La plataforma definitiva para el análisis técnico y seguimiento en tiempo real de la Fórmula 1. Ingeniería de datos aplicada al deporte motor.
+      </p>
+      <div class="flex gap-4">
+        <a class="w-10 h-10 flex items-center justify-center border border-outline-variant hover:bg-primary/10 transition-colors" href="#">
+          <span class="material-symbols-outlined text-sm">share</span>
+        </a>
+        <a class="w-10 h-10 flex items-center justify-center border border-outline-variant hover:bg-primary/10 transition-colors" href="#">
+          <span class="material-symbols-outlined text-sm">analytics</span>
+        </a>
+      </div>
+    </div>
+    <div class="grid grid-cols-2 md:grid-cols-3 gap-12">
+      <div>
+        <h5 class="font-label-mono text-label-mono text-primary uppercase mb-6">Navigation</h5>
+        <ul class="space-y-4 text-on-secondary-container">
+          <li><a class="hover:text-primary transition-colors" href="../index.html">Home</a></li>
+          <li><a class="hover:text-primary transition-colors" href="calendar.html">Calendar</a></li>
+          <li><a class="hover:text-primary transition-colors" href="teams.html">Teams</a></li>
+          <li><a class="hover:text-primary transition-colors" href="circuits.html">Circuits</a></li>
+        </ul>
+      </div>
+      <div>
+        <h5 class="font-label-mono text-label-mono text-primary uppercase mb-6">Engineering</h5>
+        <ul class="space-y-4 text-on-secondary-container">
+          <li><a class="hover:text-primary transition-colors" href="#">Telemetry Data</a></li>
+          <li><a class="hover:text-primary transition-colors" href="#">Technical Logs</a></li>
+          <li><a class="hover:text-primary transition-colors" href="#">API Access</a></li>
+          <li><a class="hover:text-primary transition-colors" href="#">Media Kit</a></li>
+        </ul>
+      </div>
+      <div class="col-span-2 md:col-span-1">
+        <h5 class="font-label-mono text-label-mono text-primary uppercase mb-6">Legal</h5>
+        <ul class="space-y-4 text-on-secondary-container">
+          <li><a class="hover:text-primary transition-colors" href="#">Privacy Policy</a></li>
+          <li><a class="hover:text-primary transition-colors" href="#">Terms of Service</a></li>
+          <li><a class="hover:text-primary transition-colors" href="#">Cookie Settings</a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  <div class="border-t border-outline-variant/20 py-8">
+    <div class="px-margin-mobile md:px-margin-desktop max-w-max-width mx-auto flex flex-col md:flex-row justify-between items-center gap-4 text-on-secondary-container text-xs font-label-mono">
+      <p>© 2026 Mundo F1. Technical Precision &amp; Engineering Excellence.</p>
+      <p>Designed for High Performance Environments.</p>
+    </div>
+  </div>
 </footer>
-<script>
-        // Micro-interactions for live telemetry simulation
-        document.addEventListener('DOMContentLoaded', () => {
-            const standingsRows = document.querySelectorAll('tbody tr');
-            standingsRows.forEach((row, index) => {
-                row.style.opacity = '0';
-                row.style.transform = 'translateY(10px)';
-                setTimeout(() => {
-                    row.style.transition = 'all 0.5s ease-out';
-                    row.style.opacity = '1';
-                    row.style.transform = 'translateY(0)';
-                }, index * 100);
-            });
-        });
-    </script>
-</body></html>
+
+<script type="module" src="../js/drivers.js"></script>
+</body>
+</html>

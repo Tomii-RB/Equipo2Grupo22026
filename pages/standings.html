@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html class="dark" lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Standings | MUNDO F1</title>
+
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script src="../js/tailwind-config.js"></script>
+
+<link href="https://fonts.googleapis.com/css2?family=Chivo:ital,wght@0,400;0,700;0,800;0,900;1,900&family=Hanken+Grotesk:wght@400;500;700&family=JetBrains+Mono:wght@500;700&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+
+<link rel="stylesheet" href="../css/common.css">  <!-- en /pages/ -->
+
+<link rel="stylesheet" href="../css/standings.css">
+</head>
+<body class="bg-background text-on-surface font-body-md selection:bg-primary-container selection:text-on-primary-container">
+
+<!-- TopNavBar -->
+<nav class="fixed top-0 w-full z-50 bg-surface/60 backdrop-blur-md border-b border-outline-variant/50">
+  <div class="flex justify-between items-center px-margin-mobile md:px-margin-desktop max-w-max-width mx-auto h-20">
+    <div class="flex items-center gap-4">
+      <a href="../index.html"><img alt="Mundo F1" class="h-8 md:h-10" src="../images/logo.png"/></a>
+    </div>
+    <div class="hidden md:flex gap-8 items-center">
+      <a class="text-on-surface-variant font-body-md text-body-md hover:text-on-surface transition-colors" href="../index.html">Home</a>
+      <a class="text-on-surface-variant font-body-md text-body-md hover:text-on-surface transition-colors" href="drivers.html">Drivers</a>
+      <a class="text-on-surface-variant font-body-md text-body-md hover:text-on-surface transition-colors" href="teams.html">Teams</a>
+      <a class="text-on-surface-variant font-body-md text-body-md hover:text-on-surface transition-colors" href="circuits.html">Circuits</a>
+      <a class="text-on-surface-variant font-body-md text-body-md hover:text-on-surface transition-colors" href="calendar.html">Calendar</a>
+      <a class="text-primary font-bold border-b-2 border-primary pb-1 font-headline-md text-headline-md" href="#">Standings</a>
+    </div>
+    <div class="flex items-center gap-4">
+        <div class="search-wrap hidden md:block">
+            <input type="text" id="search-input" class="search-input" placeholder="Buscar piloto, equipo..." autocomplete="off">
+            <div id="search-results" class="search-results"></div>
+        </div>
+        <button id="mobile-menu-btn" class="md:hidden p-2">
+            <span class="material-symbols-outlined">menu</span>
+        </button>
+    </div>
+  </div>
+  <div id="mobile-menu" class="hidden md:hidden bg-surface-container border-t border-outline-variant/50">
+    <a class="block px-4 py-3 text-on-surface-variant" href="../index.html">Home</a>
+    <a class="block px-4 py-3 text-on-surface-variant" href="drivers.html">Drivers</a>
+    <a class="block px-4 py-3 text-on-surface-variant" href="teams.html">Teams</a>
+    <a class="block px-4 py-3 text-on-surface-variant" href="circuits.html">Circuits</a>
+    <a class="block px-4 py-3 text-on-surface-variant" href="calendar.html">Calendar</a>
+    <a class="block px-4 py-3 text-primary font-bold" href="#">Standings</a>
+  </div>
+</nav>
+
+<main class="pt-24 pb-20 px-margin-mobile md:px-margin-desktop max-w-max-width mx-auto">
+
+  <!-- Header -->
+  <header class="mb-10">
+    <div class="flex items-baseline gap-4 mb-2">
+      <h1 class="font-headline-xl text-headline-xl uppercase">Standings</h1>
+      <span id="season-label" class="font-label-mono text-label-mono text-primary-container tracking-widest uppercase">Season —</span>
+    </div>
+    <div class="speed-line w-full"></div>
+  </header>
+
+  <!-- Round info + selector de temporada (oculto por ahora) -->
+  <div class="flex flex-col md:flex-row md:items-center md:justify-between gap-4 mb-8">
+    <p id="round-info" class="font-label-mono text-label-mono text-on-surface-variant uppercase">
+      Después de la ronda — de —
+    </p>
+    <!-- Selector de temporada: oculto hasta que la API lo permita -->
+    <select id="season-select" class="hidden bg-surface-container border border-outline-variant/30 text-on-surface px-3 py-2 font-label-mono text-label-mono focus:outline-none focus:border-primary">
+      <option value="">Temporada</option>
+    </select>
+  </div>
+
+  <!-- Tabs -->
+  <div class="flex gap-8 border-b border-outline-variant/30 mb-6">
+    <button data-tab="drivers" class="tab-btn active pb-3 font-headline-md text-headline-md uppercase tracking-tight">Pilotos</button>
+    <button data-tab="constructors" class="tab-btn pb-3 font-headline-md text-headline-md uppercase tracking-tight">Constructores</button>
+  </div>
+
+  <!-- Tabla -->
+  <div class="bg-surface-container overflow-hidden border border-outline-variant/20">
+    <table class="w-full text-left border-collapse">
+      <thead>
+        <tr class="bg-surface-container-high text-on-surface-variant uppercase font-label-mono text-xs">
+          <th class="p-4 w-16">Pos</th>
+          <th class="p-4" id="col-name">Driver</th>
+          <th class="p-4 hidden md:table-cell" id="col-team">Team</th>
+          <th class="p-4 text-right">Points</th>
+          <th class="p-4 text-right hidden sm:table-cell">Wins</th>
+        </tr>
+      </thead>
+      <tbody id="standings-body" class="font-label-mono">
+        <!-- js/standings.js -->
+      </tbody>
+    </table>
+  </div>
+
+  <!-- Loading / error -->
+  <div id="standings-state" class="mt-4"></div>
+
+</main>
+
+<!-- Footer -->
+<footer class="bg-surface-container-lowest border-t border-outline-variant/50 mt-24">
+  <div class="py-12 px-margin-mobile md:px-margin-desktop max-w-max-width mx-auto flex flex-col md:flex-row justify-between items-start gap-12">
+    <div class="space-y-6 max-w-sm">
+      <p class="font-body-md text-body-md text-on-secondary-container">
+        La plataforma definitiva para el análisis técnico y seguimiento en tiempo real de la Fórmula 1. Ingeniería de datos aplicada al deporte motor.
+      </p>
+      <div class="flex gap-4">
+        <a class="w-10 h-10 flex items-center justify-center border border-outline-variant hover:bg-primary/10 transition-colors" href="#">
+          <span class="material-symbols-outlined text-sm">share</span>
+        </a>
+        <a class="w-10 h-10 flex items-center justify-center border border-outline-variant hover:bg-primary/10 transition-colors" href="#">
+          <span class="material-symbols-outlined text-sm">analytics</span>
+        </a>
+      </div>
+    </div>
+    <div class="grid grid-cols-2 md:grid-cols-3 gap-12">
+      <div>
+        <h5 class="font-label-mono text-label-mono text-primary uppercase mb-6">Navigation</h5>
+        <ul class="space-y-4 text-on-secondary-container">
+          <li><a class="hover:text-primary transition-colors" href="../index.html">Home</a></li>
+          <li><a class="hover:text-primary transition-colors" href="drivers.html">Drivers</a></li>
+          <li><a class="hover:text-primary transition-colors" href="teams.html">Teams</a></li>
+          <li><a class="hover:text-primary transition-colors" href="calendar.html">Calendar</a></li>
+        </ul>
+      </div>
+      <div>
+        <h5 class="font-label-mono text-label-mono text-primary uppercase mb-6">Engineering</h5>
+        <ul class="space-y-4 text-on-secondary-container">
+          <li><a class="hover:text-primary transition-colors" href="#">Telemetry Data</a></li>
+          <li><a class="hover:text-primary transition-colors" href="#">Technical Logs</a></li>
+          <li><a class="hover:text-primary transition-colors" href="#">API Access</a></li>
+          <li><a class="hover:text-primary transition-colors" href="#">Media Kit</a></li>
+        </ul>
+      </div>
+      <div class="col-span-2 md:col-span-1">
+        <h5 class="font-label-mono text-label-mono text-primary uppercase mb-6">Legal</h5>
+        <ul class="space-y-4 text-on-secondary-container">
+          <li><a class="hover:text-primary transition-colors" href="#">Privacy Policy</a></li>
+          <li><a class="hover:text-primary transition-colors" href="#">Terms of Service</a></li>
+          <li><a class="hover:text-primary transition-colors" href="#">Cookie Settings</a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  <div class="border-t border-outline-variant/20 py-8">
+    <div class="px-margin-mobile md:px-margin-desktop max-w-max-width mx-auto flex flex-col md:flex-row justify-between items-center gap-4 text-on-secondary-container text-xs font-label-mono">
+      <p>© 2026 Mundo F1. Technical Precision &amp; Engineering Excellence.</p>
+      <p>Designed for High Performance Environments.</p>
+    </div>
+  </div>
+</footer>
+
+<script type="module" src="../js/standings.js"></script>
+</body>
+</html>

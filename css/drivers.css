@@ -1,0 +1,35 @@
+/* css/drivers.css */
+body {
+  background-color: #13131b;
+  color: #e4e1ee;
+  font-family: 'Hanken Grotesk', sans-serif;
+}
+
+.material-symbols-outlined {
+  font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+}
+
+.speed-line {
+  height: 1px;
+  background: linear-gradient(90deg, rgba(225,6,0,0) 0%, rgba(225,6,0,0.5) 50%, rgba(225,6,0,0) 100%);
+}
+
+.custom-scrollbar::-webkit-scrollbar { width: 4px; }
+.custom-scrollbar::-webkit-scrollbar-track { background: #1b1b24; }
+.custom-scrollbar::-webkit-scrollbar-thumb { background: #e10600; }
+
+/* Driver Card Hover Reveal */
+.driver-card .reveal-content {
+  max-height: 0;
+  opacity: 0;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+.driver-card:hover .reveal-content {
+  max-height: 200px;
+  opacity: 1;
+  margin-top: 1rem;
+}
+.driver-card:hover {
+  box-shadow: 0 0 20px rgba(225, 6, 0, 0.2);
+  border-color: rgba(225, 6, 0, 0.5);
+}

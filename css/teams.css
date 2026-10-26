@@ -1,0 +1,22 @@
+/* css/teams.css */
+.material-symbols-outlined {
+  font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+}
+.speed-line {
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.1), transparent);
+}
+.team-card-expand {
+  transition: max-height 0.5s cubic-bezier(0.4, 0, 0.2, 1), background-color 0.3s ease;
+  max-height: 120px;
+  overflow: hidden;
+}
+.team-card:hover .team-card-expand {
+  max-height: 400px;
+}
+.team-card:hover {
+  box-shadow: 0 0 20px rgba(225, 6, 0, 0.15);
+}
+::-webkit-scrollbar { width: 4px; }
+::-webkit-scrollbar-track { background: #13131b; }
+::-webkit-scrollbar-thumb { background: #e10600; }
