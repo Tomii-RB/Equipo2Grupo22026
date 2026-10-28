@@ -11,9 +11,13 @@ from fastapi.staticfiles import StaticFiles
 from pydantic import BaseModel, Field
 from starlette.exceptions import HTTPException as StarletteHTTPException
 
-from . import config, services as svc
-from .db import get_db
-
+try:
+    from . import config, services as svc
+    from .db import get_db
+except ImportError:
+    import config
+    import services as svc
+    from db import get_db
 try:  # error de Postgres/PostgREST (por ejemplo, una foreign key que no existe)
     from postgrest.exceptions import APIError as DbError
 except Exception:  # pragma: no cover

@@ -5,7 +5,10 @@ from __future__ import annotations
 import re
 from datetime import datetime, timezone
 
-from .utils import iso_utc, num, parse_dt
+try:
+    from .utils import iso_utc, num, parse_dt
+except ImportError:
+    from utils import iso_utc, num, parse_dt
 
 
 class NotFound(Exception):

@@ -1,7 +1,9 @@
 from functools import lru_cache
 
-from . import config
-
+try:
+    from . import config
+except ImportError:
+    import config
 
 @lru_cache
 def get_db():
