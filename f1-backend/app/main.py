@@ -15,6 +15,10 @@ try:
     from . import config, services as svc
     from .db import get_db
 except ImportError:
+    import os
+    import sys
+
+    sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
     import config
     import services as svc
     from db import get_db
